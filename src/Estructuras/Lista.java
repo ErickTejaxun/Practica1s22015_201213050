@@ -111,7 +111,7 @@ public class Lista {
  
             
                 pw.println( "digraph ColaAtencion {"
-                        + "node [shape=polygon, fontcolor=\"blue\", height=0.5, color=\"red\"]"
+                        + "node [shape=polygon, fontcolor=\"Black\", height=0.5, color=\"Grey\"]"
                         + "edge [color=\"blue\"]"
                         + "rankdir=BT"
                         + "\" Inicio \"-> \""+cola.dato+"\""
