@@ -5,6 +5,7 @@
  */
 package Estructuras;
 
+import java.awt.Image;
 import javax.swing.JLabel;
 
 /**
@@ -13,5 +14,7 @@ import javax.swing.JLabel;
  */
 public class Generic extends JLabel{
     public String nombre;
+    public String icono_path;
+    public Image icono;
     
 }

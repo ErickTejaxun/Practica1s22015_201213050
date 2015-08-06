@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
@@ -101,7 +102,7 @@ public class Lista {
     }
     
     
-    public  void ImprimirLista(String nombre){
+    public  void ImprimirLista(String nombre) throws IOException{
         FileWriter fichero = null;
         PrintWriter pw = null;
         try
@@ -111,8 +112,8 @@ public class Lista {
  
             
                 pw.println( "digraph ColaAtencion {"
-                        + "node [shape=polygon, fontcolor=\"Black\", height=0.5, color=\"Grey\"]"
-                        + "edge [color=\"blue\"]"
+                        + "node [dir=both,shape=polygon, fontcolor=\"Black\", height=0.5, color=\"Grey\"]"
+                        + "edge [color=\"blue\",dir=both color=\"blue:red\"]"
                         + "rankdir=BT"
                         + "\" Inicio \"-> \""+cola.dato+"\""
                         + "");
@@ -133,45 +134,15 @@ public class Lista {
               fichero.close();
            } catch (Exception e2) {
               e2.printStackTrace();
-           
-//        
-//        
-//    File fp=new File("\\aqui.dot");
-//    
-//    fp = fopen("VENTANILLA.dot","a");
-//    fprintf(fp,"subgraph ");
-//    fprintf(fp,"ColaAtencion {\n");
-//    fprintf(fp,"\tnode [fontcolor=\"blue\", height=0.5, color=\"red\"]\n");
-//    fprintf(fp,"\tedge [color=\"blue\"]\n");
-//    fprintf(fp,"\trankdir=LR\n");
-//    struct clienteAtencion *temp;
-//    temp=ultimoclienteAtencion;
-//    //char *estado;
-//
-//    fprintf(fp," \"Cola Atencion\" -> ");
-//   // fprintf(fp," \"Ventanillas\" -> \"De Atencion\" ");
-//   // fprintf(fp,"\"Ventanillas\"->\"Normales\" ");
-//    fprintf(fp,"\"Numero:%d \n Edad:%d \n Transaccion: \" ",
-//            temp->numero,temp->edad);
-//
-//    while(temp!=NULL)
-//    {
-//
-//        if(temp->anterior != NULL){
-//            fprintf(fp,"\"Numero:%d \n Edad:%d \n Transaccion: \" -> ",
-//                    temp->numero,temp->edad);
-//        }else{
-//              //fprintf(fp,"\"Numero:%d \n Dinero \n retirado:Q%f \n depositado:Q%f \" ",temp->numero,temp->dinero_retirado,temp->dinero_depositado);
-//            fprintf(fp,"\"Numero:%d \n Edad:%d \n Transaccion: \" ",
-//                    temp->numero,temp->edad);
-//        }
-//
-//        temp=temp->anterior;
-//    }
-//    fprintf(fp,"\n}");
-//    fclose(fp);
+              
+     
         }
     }
+
+                   String [] cmd = {"dot ",PathActual(),"\\",nombre,".dot ","-Tpng ", "-o ",PathActual(),"\\",nombre,".png"}; //Crear imagen.
+                   Runtime.getRuntime().exec(cmd);
+   
+    
 }
     public String PathActual(){
     String path="";
