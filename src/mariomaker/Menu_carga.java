@@ -248,5 +248,7 @@ public class Menu_carga extends javax.swing.JFrame {
 //    nuevo.setLayout(null);
 //     nuevo.objetos=objetos_tablero;   
     }
-    
+    public void agregar(int tipo)
+    {
+    }
 }
