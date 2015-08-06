@@ -15,6 +15,13 @@ import javax.swing.JLabel;
 public class Generic extends JLabel{
     public String nombre;
     public String icono_path;
+    public int tipo;
     public Image icono;
+    public Generic(String nombre, String path,int tipo)
+    {
+        this.nombre=nombre;
+        this.icono_path=path;
+        this.tipo=tipo;
+    }
     
 }

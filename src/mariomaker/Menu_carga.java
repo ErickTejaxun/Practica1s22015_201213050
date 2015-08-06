@@ -5,11 +5,15 @@
  */
 package mariomaker;
 
+import Estructuras.Generic;
 import Estructuras.Lista;
 import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -32,13 +36,17 @@ public class Menu_carga extends javax.swing.JFrame {
     public FileReader fr;
     public  BufferedReader br;
     
-    public int no_suelo=0;
-    public int no_Pared=0;
-    public int no_Goomba=0;
-    public int no_Koopa=0;
-    public int no_Ficha=0;
-    public int no_Hongo=0;
-    public int no_Castillo=0;
+    public static int no_suelo=0;
+    public static int no_pared=0;
+    public static int no_goomba=0;
+    public static int no_koopa=0;
+    public static int no_ficha=0;
+    public static int no_hongo=0;
+    public static int no_personaje=0;
+    public static int no_castillo=0;
+    public static Lista lista_objetos =new Lista();
+    public Generic objeto_nuevo;
+    
     
     
     public Menu_carga() {
@@ -59,12 +67,17 @@ public class Menu_carga extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_nombre_objeto = new javax.swing.JTextField();
         txt_path_imagen = new javax.swing.JTextField();
-        boton_path_imagen = new javax.swing.JButton();
+        boton_graficar = new javax.swing.JButton();
         boton_agregar_objeto = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Imagen_prueba = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        lista_tipo = new javax.swing.JComboBox();
+        boton_path_imagen1 = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JPanel_grafica = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        Imagen_prueba = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mario Maker Guatemalteco v.1.0.0");
@@ -72,7 +85,7 @@ public class Menu_carga extends javax.swing.JFrame {
 
         jLabel1.setText("Meú de Carga de Objetos");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(112, 11, 260, 40);
+        jLabel1.setBounds(90, 10, 140, 40);
 
         jLabel2.setText("Path");
         getContentPane().add(jLabel2);
@@ -86,14 +99,14 @@ public class Menu_carga extends javax.swing.JFrame {
         getContentPane().add(txt_path_imagen);
         txt_path_imagen.setBounds(90, 110, 190, 30);
 
-        boton_path_imagen.setText("Elegir");
-        boton_path_imagen.addActionListener(new java.awt.event.ActionListener() {
+        boton_graficar.setText("Elegir");
+        boton_graficar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_path_imagenActionPerformed(evt);
+                boton_graficarActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_path_imagen);
-        boton_path_imagen.setBounds(290, 110, 130, 30);
+        getContentPane().add(boton_graficar);
+        boton_graficar.setBounds(440, 180, 130, 30);
 
         boton_agregar_objeto.setText("Agregar");
         boton_agregar_objeto.addActionListener(new java.awt.event.ActionListener() {
@@ -104,31 +117,60 @@ public class Menu_carga extends javax.swing.JFrame {
         getContentPane().add(boton_agregar_objeto);
         boton_agregar_objeto.setBounds(290, 180, 140, 30);
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 230, 570, 300);
-        getContentPane().add(Imagen_prueba);
-        Imagen_prueba.setBounds(450, 30, 150, 110);
-
         jLabel4.setText("Tipo");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(30, 170, 70, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suelo", "Pared", "Goomba", "Koopa", "Ficha", "Hongo de vida", "Castillo final" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(90, 180, 190, 30);
+        lista_tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suelo", "Pared", "Goomba", "Koopa", "Ficha", "Hongo de vida", "Personaje Principal", "Castillo final" }));
+        getContentPane().add(lista_tipo);
+        lista_tipo.setBounds(90, 180, 190, 30);
 
-        setBounds(0, 0, 648, 611);
+        boton_path_imagen1.setText("Elegir");
+        boton_path_imagen1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_path_imagen1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_path_imagen1);
+        boton_path_imagen1.setBounds(290, 110, 130, 30);
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jTabbedPane1.addTab("Lista", jScrollPane1);
+
+        JPanel_grafica.setLayout(null);
+        jTabbedPane1.addTab("Gráfica", JPanel_grafica);
+
+        getContentPane().add(jTabbedPane1);
+        jTabbedPane1.setBounds(20, 260, 630, 350);
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(100, 220, 120, 40);
+        getContentPane().add(Imagen_prueba);
+        Imagen_prueba.setBounds(480, 20, 150, 90);
+
+        jLabel6.setText("Vista Previa");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(490, 140, 130, 20);
+
+        setBounds(0, 0, 691, 678);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boton_path_imagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_path_imagenActionPerformed
-    ElegirImagen();
-    }//GEN-LAST:event_boton_path_imagenActionPerformed
+    private void boton_graficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_graficarActionPerformed
+        try {
+            lista_objetos.ImprimirLista("objetos");
+        } catch (IOException ex) {
+            Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_boton_graficarActionPerformed
 
     private void boton_agregar_objetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_agregar_objetoActionPerformed
+    agregar(lista_tipo.getSelectedIndex());
     
     }//GEN-LAST:event_boton_agregar_objetoActionPerformed
+
+    private void boton_path_imagen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_path_imagen1ActionPerformed
+    ElegirImagen();        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_path_imagen1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,14 +210,19 @@ public class Menu_carga extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Imagen_prueba;
+    private javax.swing.JPanel JPanel_grafica;
     private javax.swing.JButton boton_agregar_objeto;
-    private javax.swing.JButton boton_path_imagen;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JButton boton_graficar;
+    private javax.swing.JButton boton_path_imagen1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JComboBox lista_tipo;
     private javax.swing.JTextField txt_nombre_objeto;
     private javax.swing.JTextField txt_path_imagen;
     // End of variables declaration//GEN-END:variables
@@ -250,5 +297,61 @@ public class Menu_carga extends javax.swing.JFrame {
     }
     public void agregar(int tipo)
     {
+        // 1. Suelo
+        // 2. Pared
+        // 3. Goomba
+        // 4. Koopa
+        // 5. Ficha
+        // 6. Hongo
+        // 7. Personaje
+        // 8. Castillo
+        if(tipo==6)
+        {
+            if(no_personaje<1)
+            {
+                JOptionPane.showMessageDialog(this, "Ya hay un heróe en la lista.");
+            }
+            else
+            {
+                    if(tipo==0)
+                    {
+                        no_suelo++;
+                    }
+                    if(tipo==1)
+                    {
+                        no_pared++;
+                    }
+                    if(tipo==2)
+                    {
+                        no_goomba++;
+                    }
+                    if(tipo==3)
+                    {
+                        no_koopa++;
+                    }
+                    if(tipo==4)
+                    {
+                        no_ficha++;
+                    }
+                    if(tipo==5)
+                    {
+                        no_hongo++;
+                    }
+                    if(tipo==7)
+                    {
+                        no_castillo++;
+                    }
+                    String nombre=txt_nombre_objeto.getText();
+                    String path=txt_path_imagen.getText();
+                    int tipo_temp=lista_tipo.getSelectedIndex();
+                    lista_objetos.InsertarAlFrente(this.objeto_nuevo=new Generic(nombre,path,tipo_temp));
+            }
+        }
+
+      
+    }
+    public void mostrarGrafica()
+    {
+        
     }
 }

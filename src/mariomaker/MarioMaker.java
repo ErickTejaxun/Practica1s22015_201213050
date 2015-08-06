@@ -35,7 +35,7 @@ public class MarioMaker {
             nueva.InsertarAlFrente(m);
             
         }
-        nueva.ImprimirLista("lista");
+        //nueva.ImprimirLista("lista");
         for(int x=0;x<10;x++)
         {
             int n=x;

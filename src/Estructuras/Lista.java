@@ -120,7 +120,10 @@ public class Lista {
                Nodo temporal=cola;
                         while(temporal.siguiente!=null)
                         {
-                             pw.println("\""+temporal.dato+"\"-> \""+temporal.siguiente.dato+"\"");
+                             Generic tmp=(Generic)temporal.dato;
+                             Generic tmp2=(Generic)temporal.siguiente.dato;
+                             String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
+                             pw.println("\""+tmp.nombre+"\n "+ tmp.icono_path +"\n "+ tipos[tmp.tipo-1]+" \"-> \""+tmp2.nombre+"\n "+ tmp2.icono_path +"\n "+ tipos[tmp2.tipo-1]+"\"");
                              temporal=temporal.siguiente;
                         }
                 pw.println("}");
