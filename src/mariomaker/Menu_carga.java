@@ -5,6 +5,18 @@
  */
 package mariomaker;
 
+import Estructuras.Lista;
+import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Erick
@@ -14,6 +26,21 @@ public class Menu_carga extends javax.swing.JFrame {
     /**
      * Creates new form Menu_inicio
      */
+    public JFileChooser seleccion;
+    public static String path;
+    public File archivo;
+    public FileReader fr;
+    public  BufferedReader br;
+    
+    public int no_suelo=0;
+    public int no_Pared=0;
+    public int no_Goomba=0;
+    public int no_Koopa=0;
+    public int no_Ficha=0;
+    public int no_Hongo=0;
+    public int no_Castillo=0;
+    
+    
     public Menu_carga() {
         initComponents();
     }
@@ -35,6 +62,9 @@ public class Menu_carga extends javax.swing.JFrame {
         boton_path_imagen = new javax.swing.JButton();
         boton_agregar_objeto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
+        Imagen_prueba = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mario Maker Guatemalteco v.1.0.0");
@@ -44,7 +74,7 @@ public class Menu_carga extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(112, 11, 260, 40);
 
-        jLabel2.setText("Imagen");
+        jLabel2.setText("Path");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(30, 110, 70, 30);
 
@@ -57,20 +87,48 @@ public class Menu_carga extends javax.swing.JFrame {
         txt_path_imagen.setBounds(90, 110, 190, 30);
 
         boton_path_imagen.setText("Elegir");
+        boton_path_imagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_path_imagenActionPerformed(evt);
+            }
+        });
         getContentPane().add(boton_path_imagen);
-        boton_path_imagen.setBounds(280, 110, 130, 30);
+        boton_path_imagen.setBounds(290, 110, 130, 30);
 
         boton_agregar_objeto.setText("Agregar");
+        boton_agregar_objeto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_agregar_objetoActionPerformed(evt);
+            }
+        });
         getContentPane().add(boton_agregar_objeto);
-        boton_agregar_objeto.setBounds(90, 150, 140, 30);
+        boton_agregar_objeto.setBounds(290, 180, 140, 30);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 200, 570, 260);
+        jScrollPane1.setBounds(20, 230, 570, 300);
+        getContentPane().add(Imagen_prueba);
+        Imagen_prueba.setBounds(450, 30, 150, 110);
+
+        jLabel4.setText("Tipo");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(30, 170, 70, 30);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suelo", "Pared", "Goomba", "Koopa", "Ficha", "Hongo de vida", "Castillo final" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(90, 180, 190, 30);
 
         setBounds(0, 0, 648, 611);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boton_path_imagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_path_imagenActionPerformed
+    ElegirImagen();
+    }//GEN-LAST:event_boton_path_imagenActionPerformed
+
+    private void boton_agregar_objetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_agregar_objetoActionPerformed
+    
+    }//GEN-LAST:event_boton_agregar_objetoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,13 +167,86 @@ public class Menu_carga extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Imagen_prueba;
     private javax.swing.JButton boton_agregar_objeto;
     private javax.swing.JButton boton_path_imagen;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_nombre_objeto;
     private javax.swing.JTextField txt_path_imagen;
     // End of variables declaration//GEN-END:variables
+    public void ElegirImagen()
+    {
+         seleccion =new JFileChooser();
+        FileNameExtensionFilter filtro=new FileNameExtensionFilter("jpg","jpg","png","mbp");
+        seleccion.setFileFilter(filtro);
+        seleccion.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int resultado= seleccion.showOpenDialog(this);
+        if(resultado==JFileChooser.APPROVE_OPTION){
+            File nombre=seleccion.getSelectedFile();
+            path=nombre.toString();
+            String url=seleccion.getSelectedFile().getAbsolutePath();           
+            this.setTitle(url);
+        }
+        //JOptionPane.showMessageDialog(this, path);
+        mostrar_Prueba();
+        txt_path_imagen.setText(path);
+    }
+    public void mostrar_Prueba()
+    {
+        int ancho_label=Imagen_prueba.getWidth();
+        int altura_label=Imagen_prueba.getHeight();
+        ImageIcon imagen = new ImageIcon(path); 
+                    Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(ancho_label, 
+                                                               altura_label, 
+                                                               Image.SCALE_DEFAULT));
+                           Imagen_prueba.setIcon(icono);
+    }
+    public void graficar(){
+    int ancho_label=Imagen_prueba.getWidth();
+    int altura_label=Imagen_prueba.getHeight();
+    //JLabel[][] objetos_tablero=new JLabel[altura][anchura];
+    //int ancho_bloque=ancho_label/anchura;
+    //int altura_bloque=altura_label/altura;
+//    
+//        for(int x=0;x<anchura;x++){
+//            for(int y=0;y<altura;y++){
+//                 String url=buscar(tablero[x][y]);
+//                  jLabel1 = new javax.swing.JLabel();
+//                  jLabel1.setBounds(ancho_bloque*x, altura_bloque*y,ancho_bloque,altura_bloque );
+//                  ImageIcon imagen = new ImageIcon(url); 
+//                    Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(ancho_bloque, 
+//                                                               altura_bloque, 
+//                                                               Image.SCALE_DEFAULT));
+//                           jLabel1.setIcon(icono);
+//                           objetos_tablero[x][y]=jLabel1;
+////                           nuevo.add(this.Juego);
+//                           Juego.add(objetos_tablero[x][y]);
+//                          
+//                           Juego.repaint();
+//                           jLabel1.repaint();
+//                           
+//                           if(encontrado==true){
+//                               
+//                           System.out.println(x +","+y);
+//                           x_heroe=x;
+//                           y_heroe=y;
+//                           encontrado=false;
+//                           }
+//                         
+//                  
+//                  
+//            }
+//
+//        }
+//    Ejecutable nuevo=new Ejecutable();
+//    nuevo.show(true);
+//    nuevo.setLayout(null);
+//     nuevo.objetos=objetos_tablero;   
+    }
+    
 }
