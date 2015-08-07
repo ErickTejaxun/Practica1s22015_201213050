@@ -75,6 +75,7 @@ public class Menu_carga extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         JPanel_grafica = new javax.swing.JPanel();
+        label_grafo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Imagen_prueba = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -139,10 +140,13 @@ public class Menu_carga extends javax.swing.JFrame {
         jTabbedPane1.addTab("Lista", jScrollPane1);
 
         JPanel_grafica.setLayout(null);
+        JPanel_grafica.add(label_grafo);
+        label_grafo.setBounds(10, 20, 760, 430);
+
         jTabbedPane1.addTab("Gráfica", JPanel_grafica);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(20, 260, 630, 350);
+        jTabbedPane1.setBounds(20, 230, 780, 480);
         getContentPane().add(jLabel5);
         jLabel5.setBounds(100, 220, 120, 40);
         getContentPane().add(Imagen_prueba);
@@ -152,23 +156,34 @@ public class Menu_carga extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(490, 140, 130, 20);
 
-        setBounds(0, 0, 691, 678);
+        setBounds(0, 0, 822, 781);
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_graficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_graficarActionPerformed
-        try {
-            lista_objetos.ImprimirLista("objetos");
-        } catch (IOException ex) {
-            Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       mostrarGrafica();
+       this.repaint();
     }//GEN-LAST:event_boton_graficarActionPerformed
 
     private void boton_agregar_objetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_agregar_objetoActionPerformed
-    agregar(lista_tipo.getSelectedIndex());
-    txt_nombre_objeto.setText("");
-    txt_path_imagen.setText("");
-    Imagen_prueba.setIcon(null);
-    this.repaint();
+        if((txt_nombre_objeto.getText().equals(""))||(txt_path_imagen.getText().equals("")))
+        {
+            JOptionPane.showMessageDialog(this, "Debe llenar los datos del objeto");
+        }else
+        {
+                agregar(lista_tipo.getSelectedIndex());
+                txt_nombre_objeto.setText("");
+                txt_path_imagen.setText("");
+                Imagen_prueba.setIcon(null);
+                this.repaint();
+                try 
+                {
+                        lista_objetos.ImprimirLista("objetos");            
+                } catch (IOException ex) 
+                {
+                Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+
     }//GEN-LAST:event_boton_agregar_objetoActionPerformed
 
     private void boton_path_imagen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_path_imagen1ActionPerformed
@@ -225,6 +240,7 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel label_grafo;
     private javax.swing.JComboBox lista_tipo;
     private javax.swing.JTextField txt_nombre_objeto;
     private javax.swing.JTextField txt_path_imagen;
@@ -348,6 +364,7 @@ public class Menu_carga extends javax.swing.JFrame {
                             String path=txt_path_imagen.getText();
                             int tipo_temp=lista_tipo.getSelectedIndex();
                             lista_objetos.InsertarAlFrente(this.objeto_nuevo=new Generic(nombre,path,tipo_temp));
+                            no_personaje++;
                         }
                     }
                     else
@@ -365,6 +382,32 @@ public class Menu_carga extends javax.swing.JFrame {
     }
     public void mostrarGrafica()
     {
+//        Ajustar el tama;o de la imagen.
+        int ancho_label=label_grafo.getWidth();
+        int altura_label=label_grafo.getHeight();
+        ImageIcon imagen = new ImageIcon(PathActual()+"\\"+"objetos.png"); 
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(ancho_label, 
+                                                               altura_label, 
+                                                               Image.SCALE_DEFAULT));
+                           label_grafo.setIcon(icono);
         
+//        ImageIcon imagen = new ImageIcon(PathActual()+"\\"+"objetos.png");
+//        Icon icono = new ImageIcon(imagen.getImage());
+//        label_grafo.setIcon(icono);
+//        this.repaint();
+        
+                
     }
+    public String PathActual(){
+    String path="";
+     File miDir = new File (".");
+     try {
+       //System.out.println (miDir.getCanonicalPath());
+       path=miDir.getCanonicalPath();
+     }
+     catch(Exception e) {
+       e.printStackTrace();
+       }
+     return path;
+}
 }
