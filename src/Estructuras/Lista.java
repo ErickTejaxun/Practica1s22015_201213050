@@ -109,13 +109,12 @@ public class Lista {
         {
             fichero = new FileWriter(this.PathActual()+"\\"+nombre+".dot");
             pw = new PrintWriter(fichero);
- 
+                //dir=both
             
                 pw.println( "digraph ColaAtencion {"
                         + "node [dir=both,shape=polygon, fontcolor=\"Black\", height=0.5, color=\"Grey\"]"
-                        + "edge [color=\"blue\",dir=both color=\"blue:red\"]"
+                        + "edge [color=\"blue\", color=\"blue:red\"]"
                         + "rankdir=BT"
-                        + "\" Inicio \"-> \""+cola.dato+"\""
                         + "");
                Nodo temporal=cola;
                         while(temporal.siguiente!=null)
@@ -123,7 +122,7 @@ public class Lista {
                              Generic tmp=(Generic)temporal.dato;
                              Generic tmp2=(Generic)temporal.siguiente.dato;
                              String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
-                             pw.println("\""+tmp.nombre+"\n "+ tmp.icono_path +"\n "+ tipos[tmp.tipo-1]+" \"-> \""+tmp2.nombre+"\n "+ tmp2.icono_path +"\n "+ tipos[tmp2.tipo-1]+"\"");
+                             pw.println("\""+tmp.nombre+"\n"+ tmp.icono_path +"\n"+ tipos[tmp.tipo]+"\"-> \""+tmp2.nombre+"\n"+ tmp2.icono_path +"\n"+ tipos[tmp2.tipo]+"\"");
                              temporal=temporal.siguiente;
                         }
                 pw.println("}");

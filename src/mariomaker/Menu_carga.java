@@ -99,7 +99,7 @@ public class Menu_carga extends javax.swing.JFrame {
         getContentPane().add(txt_path_imagen);
         txt_path_imagen.setBounds(90, 110, 190, 30);
 
-        boton_graficar.setText("Elegir");
+        boton_graficar.setText("Gráficar");
         boton_graficar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_graficarActionPerformed(evt);
@@ -165,7 +165,10 @@ public class Menu_carga extends javax.swing.JFrame {
 
     private void boton_agregar_objetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_agregar_objetoActionPerformed
     agregar(lista_tipo.getSelectedIndex());
-    
+    txt_nombre_objeto.setText("");
+    txt_path_imagen.setText("");
+    Imagen_prueba.setIcon(null);
+    this.repaint();
     }//GEN-LAST:event_boton_agregar_objetoActionPerformed
 
     private void boton_path_imagen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_path_imagen1ActionPerformed
@@ -305,14 +308,6 @@ public class Menu_carga extends javax.swing.JFrame {
         // 6. Hongo
         // 7. Personaje
         // 8. Castillo
-        if(tipo==6)
-        {
-            if(no_personaje<1)
-            {
-                JOptionPane.showMessageDialog(this, "Ya hay un heróe en la lista.");
-            }
-            else
-            {
                     if(tipo==0)
                     {
                         no_suelo++;
@@ -341,12 +336,30 @@ public class Menu_carga extends javax.swing.JFrame {
                     {
                         no_castillo++;
                     }
-                    String nombre=txt_nombre_objeto.getText();
-                    String path=txt_path_imagen.getText();
-                    int tipo_temp=lista_tipo.getSelectedIndex();
-                    lista_objetos.InsertarAlFrente(this.objeto_nuevo=new Generic(nombre,path,tipo_temp));
-            }
-        }
+                    if(tipo==6)
+                    {
+                        if(no_personaje!=0)
+                        {
+                            JOptionPane.showMessageDialog(this, "Ya hay un heróe en la lista.");
+                        }
+                        else
+                        {
+                            String nombre=txt_nombre_objeto.getText();
+                            String path=txt_path_imagen.getText();
+                            int tipo_temp=lista_tipo.getSelectedIndex();
+                            lista_objetos.InsertarAlFrente(this.objeto_nuevo=new Generic(nombre,path,tipo_temp));
+                        }
+                    }
+                    else
+                    {
+                        String nombre=txt_nombre_objeto.getText();
+                        String path=txt_path_imagen.getText();
+                        int tipo_temp=lista_tipo.getSelectedIndex();
+                        lista_objetos.InsertarAlFrente(this.objeto_nuevo=new Generic(nombre,path,tipo_temp));
+                    }
+                    
+                    
+
 
       
     }

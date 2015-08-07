@@ -1,0 +1,17 @@
+digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue",dir=both color="blue:red"]rankdir=BT
+"1
+Z:\Descarga\multiplexor.png
+Suelo"-> "2
+Z:\Descarga\parcialRetra2.jpg
+Suelo"
+"2
+Z:\Descarga\parcialRetra2.jpg
+Suelo"-> "3
+Z:\Descarga\mcdinero.jpg
+Personaje Principal"
+"3
+Z:\Descarga\mcdinero.jpg
+Personaje Principal"-> "4
+Z:\Descarga\fire.jpg
+Personaje Principal"
+}
