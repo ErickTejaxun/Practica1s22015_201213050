@@ -141,7 +141,7 @@ public class Lista {
         }
     }
 
-                   String [] cmd = {"dot ",PathActual(),"\\",nombre,".dot ","-Tpng ", "-o ",PathActual(),"\\",nombre,".png"}; //Crear imagen.
+                   String  cmd = "dot "+PathActual()+"\\"+nombre+".dot "+"-Tpng "+"-o "+PathActual()+"\\"+nombre+".png"; //Crear imagen.
                    Runtime.getRuntime().exec(cmd);
    
     
