@@ -60,7 +60,7 @@ public class Lista {
     }
     public Nodo ExtaerCola()
     {
-        Nodo resultado=new Nodo();
+        Nodo resultado=null;
         if(Vacio())
         {
             resultado=null;
@@ -69,7 +69,14 @@ public class Lista {
         else
         {
             resultado=cola;
-            cola=cola.siguiente;
+            if(cola.anterior!=null)
+            {
+                cola=cola.siguiente;
+            }else
+            {
+                cabeza=cola=null;
+            }
+            
            // cola.anterior=null;
         }
         
@@ -77,7 +84,7 @@ public class Lista {
     }
     public Nodo ExtraerCabeza()
     {
-        Nodo resultado=new Nodo();
+        Nodo resultado=null;
         if(Vacio())
         {
             resultado=null;
@@ -86,8 +93,15 @@ public class Lista {
         else
         {
             resultado=cabeza;
-            cabeza=cabeza.anterior;
-            cabeza.siguiente=null;
+            if(cabeza.anterior!=null)
+            {
+                cabeza=cabeza.anterior;
+            }else
+            {
+                cabeza=cola=null;
+            }
+            
+            //cabeza.siguiente=null;
         }
         return resultado;
     }
