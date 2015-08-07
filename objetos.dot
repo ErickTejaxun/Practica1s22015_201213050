@@ -1,12 +1,7 @@
 digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue", color="blue:red"]rankdir=BT
-"Suelo2
-Z:\Descarga\misho.jpg
-Suelo"-> "Suelo3
-Z:\Descarga\mia.jpg
-Suelo"
-"Suelo3
-Z:\Descarga\mia.jpg
-Suelo"-> "Suelo33
-Z:\Descarga\Parcial2.jpg
-Suelo"
+"1
+Z:\Descarga\noposganás.jpg
+Castillo"-> "Sue;o
+Z:\Descarga\10934423_849079618483017_1567440590_n.jpg
+Personaje Principal"
 }

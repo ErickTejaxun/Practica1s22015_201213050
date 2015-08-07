@@ -141,7 +141,7 @@ public class Menu_carga extends javax.swing.JFrame {
 
         JPanel_grafica.setLayout(null);
         JPanel_grafica.add(label_grafo);
-        label_grafo.setBounds(10, 20, 760, 430);
+        label_grafo.setBounds(20, 20, 740, 420);
 
         jTabbedPane1.addTab("Gráfica", JPanel_grafica);
 
@@ -161,7 +161,7 @@ public class Menu_carga extends javax.swing.JFrame {
 
     private void boton_graficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_graficarActionPerformed
        mostrarGrafica();
-       this.repaint();
+      
     }//GEN-LAST:event_boton_graficarActionPerformed
 
     private void boton_agregar_objetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_agregar_objetoActionPerformed
@@ -247,12 +247,12 @@ public class Menu_carga extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     public void ElegirImagen()
     {
-         seleccion =new JFileChooser();
-        FileNameExtensionFilter filtro=new FileNameExtensionFilter("jpg","jpg","png","mbp");
-        seleccion.setFileFilter(filtro);
-        seleccion.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int resultado= seleccion.showOpenDialog(this);
-        if(resultado==JFileChooser.APPROVE_OPTION){
+            seleccion =new JFileChooser("Z:\\Descarga");
+            FileNameExtensionFilter filtro=new FileNameExtensionFilter("jpg","jpg","png","mbp");
+            seleccion.setFileFilter(filtro);
+            seleccion.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            int resultado= seleccion.showOpenDialog(this);
+            if(resultado==JFileChooser.APPROVE_OPTION){
             File nombre=seleccion.getSelectedFile();
             path=nombre.toString();
             String url=seleccion.getSelectedFile().getAbsolutePath();           
@@ -348,10 +348,6 @@ public class Menu_carga extends javax.swing.JFrame {
                     {
                         no_hongo++;
                     }
-                    if(tipo==7)
-                    {
-                        no_castillo++;
-                    }
                     if(tipo==6)
                     {
                         if(no_personaje!=0)
@@ -369,11 +365,30 @@ public class Menu_carga extends javax.swing.JFrame {
                     }
                     else
                     {
-                        String nombre=txt_nombre_objeto.getText();
-                        String path=txt_path_imagen.getText();
-                        int tipo_temp=lista_tipo.getSelectedIndex();
-                        lista_objetos.InsertarAlFrente(this.objeto_nuevo=new Generic(nombre,path,tipo_temp));
+                        if(tipo==7)
+                        {
+                            if(no_castillo!=0)
+                            {
+                                JOptionPane.showMessageDialog(this, "Ya hay un castillo en la lista.");
+                            }
+                            else 
+                            {
+                                String nombre=txt_nombre_objeto.getText();
+                                String path=txt_path_imagen.getText();
+                                int tipo_temp=lista_tipo.getSelectedIndex();
+                                lista_objetos.InsertarAlFrente(this.objeto_nuevo=new Generic(nombre,path,tipo_temp));
+                                no_castillo++;
+                            }
+                        }
+                        else 
+                        {
+                                String nombre=txt_nombre_objeto.getText();
+                                String path=txt_path_imagen.getText();
+                                int tipo_temp=lista_tipo.getSelectedIndex();
+                                lista_objetos.InsertarAlFrente(this.objeto_nuevo=new Generic(nombre,path,tipo_temp));
+                        }
                     }
+
                     
                     
 
@@ -388,14 +403,13 @@ public class Menu_carga extends javax.swing.JFrame {
         ImageIcon imagen = new ImageIcon(PathActual()+"\\"+"objetos.png"); 
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(ancho_label, 
                                                                altura_label, 
-                                                               Image.SCALE_DEFAULT));
+                                                               Image.SCALE_SMOOTH));
                            label_grafo.setIcon(icono);
         
 //        ImageIcon imagen = new ImageIcon(PathActual()+"\\"+"objetos.png");
 //        Icon icono = new ImageIcon(imagen.getImage());
 //        label_grafo.setIcon(icono);
-//        this.repaint();
-        
+//        label_grafo.repaint();
                 
     }
     public String PathActual(){
