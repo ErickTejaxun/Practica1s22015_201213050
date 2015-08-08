@@ -5,8 +5,10 @@
  */
 package mariomaker;
 
+import Estructuras.Cola;
 import Estructuras.Generic;
 import Estructuras.Lista;
+import Estructuras.Pila;
 import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,7 +18,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -47,6 +48,11 @@ public class Menu_carga extends javax.swing.JFrame {
     public static int no_castillo=0;
     public static Lista lista_objetos =new Lista();
     public Generic objeto_nuevo;
+    public static int tipo_extraccion=0;
+    public static Pila pila_resultante;
+    public static Cola cola_resultante;
+    //1 cola tipo_extraccion
+    //0 Pila tipo_extraccion
     
     
     
@@ -112,6 +118,8 @@ public class Menu_carga extends javax.swing.JFrame {
         jLabel3.setBounds(30, 60, 70, 30);
         getContentPane().add(txt_nombre_objeto);
         txt_nombre_objeto.setBounds(90, 60, 190, 30);
+
+        txt_path_imagen.setEnabled(false);
         getContentPane().add(txt_path_imagen);
         txt_path_imagen.setBounds(90, 110, 190, 30);
 
@@ -200,6 +208,11 @@ public class Menu_carga extends javax.swing.JFrame {
         Imagen_prueba.setBounds(140, 10, 180, 110);
 
         boton_continuar.setText("Continuar");
+        boton_continuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_continuarActionPerformed(evt);
+            }
+        });
         jPanel1.add(boton_continuar);
         boton_continuar.setBounds(210, 173, 120, 40);
 
@@ -285,6 +298,11 @@ public class Menu_carga extends javax.swing.JFrame {
          seleccion_pila.setSelected(true);
      }
     }//GEN-LAST:event_seleccion_colaActionPerformed
+
+    private void boton_continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_continuarActionPerformed
+        pasarTablero();
+        
+    }//GEN-LAST:event_boton_continuarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -526,13 +544,14 @@ public class Menu_carga extends javax.swing.JFrame {
     {
     String path="";
      File miDir = new File (".");
-     try {
-       //System.out.println (miDir.getCanonicalPath());
-       path=miDir.getCanonicalPath();
+     try 
+     {
+         path=miDir.getCanonicalPath();
      }
-     catch(Exception e) {
+     catch(Exception e) 
+     {
        e.printStackTrace();
-       }
+     }
      return path;
     }
     
@@ -540,21 +559,23 @@ public class Menu_carga extends javax.swing.JFrame {
     {
         int ancho=Panel_muestra1.getHeight();
         int altura=Panel_muestra1.getWidth();
-        Lista temporal=lista_objetos;
+        Lista temporal=lista_objetos.clonar();
         Panel_muestra.removeAll();
+        Panel_muestra.setLayout(null);
         int contador=0;
-        while(!temporal.Vacio())
-        {
-            contador++;
-            Generic objeto_temporal= (Generic)temporal.ExtraerCabeza().dato;
-            String nombre=objeto_temporal.nombre;
-            String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
-            String tipo=tipos[objeto_temporal.tipo];
-            String path=objeto_temporal.icono_path;
-            //jLabel8.setBounds(10, 10, 90, 30);
-            //(x,y,ancho,altura)
-            JLabel mnombre= new JLabel(); mnombre.setText(nombre);Panel_muestra.add(mnombre); mnombre.setBounds(10, (10+contador*30), 90, 30);    
-        }
+//        while(!temporal.Vacio())
+//        {
+//            contador++;
+//            Nodo nuevo=temporal.ExtraerCabeza();
+//            Generic objeto_temporal= (Generic)nuevo.dato;
+//            String nombre=objeto_temporal.nombre;
+//            String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
+//            String tipo=tipos[objeto_temporal.tipo];
+//            String path=objeto_temporal.icono_path;
+//            //jLabel8.setBounds(10, 10, 90, 30);
+//            //(x,y,ancho,altura)
+//            JLabel mnombre= new JLabel(); mnombre.setText(nombre);Panel_muestra.add(mnombre); mnombre.setBounds( 100*contador,100*contador,100*contador,100*contador);    
+//        }
         this.repaint();
 //        String nombre=nuevo.nombre;
 //        String tipo=nuevo.tipo;
@@ -574,4 +595,23 @@ public class Menu_carga extends javax.swing.JFrame {
 //        mimagen.setIcon(imagenredimencionada);
 //        mostradory+=100;
     }
+    public void pasarTablero()
+    {
+       //1 cola tipo_extraccion
+       //0 Pila tipo_extraccion
+       if(seleccion_pila.isSelected())
+       {
+           tipo_extraccion=0;
+           cola_resultante=lista_objetos.clonarcola();          
+       }else
+       {
+           tipo_extraccion=1;
+           pila_resultante=lista_objetos.clonarpila();
+       }
+       
+       Tablero nuevo=new Tablero();
+       nuevo.show(true);
+       
+    }
+    
 }

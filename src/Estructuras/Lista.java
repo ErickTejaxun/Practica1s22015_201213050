@@ -183,5 +183,46 @@ public class Lista {
        }
      return path;
 }
+    public Lista clonar()
+    {
+        Lista lista_temporal=new Lista();
+        Nodo nodo_temporal=new Nodo();
+        nodo_temporal=cabeza;
+        if(!this.Vacio())
+        {
+            Nodo nuevo_nodo=new Nodo(cola);
+            lista_temporal.InsertarAlFrente(nuevo_nodo);
+            while(nodo_temporal.anterior!=null)
+            {
+                nuevo_nodo=new Nodo(nodo_temporal);
+                lista_temporal.InsertarAlFrente(nuevo_nodo);
+                nodo_temporal=nodo_temporal.anterior;
+            }
+            
+        }
+
+        return lista_temporal;
+    }
+    public Pila clonarpila()
+    {
+        Pila pila_temporal=new Pila();
+        while(!Vacio())
+        {
+            pila_temporal.Apilar(this.ExtaerCola());
+        }
+        
+        return pila_temporal;
+    }
+    public Cola clonarcola()
+    {
+        Cola cola_temporal=new Cola();
+        while(!Vacio())
+        {
+            cola_temporal.Encolar(this.ExtaerCola());
+        }
+        
+        return cola_temporal;
+    }
+    
     
 }
