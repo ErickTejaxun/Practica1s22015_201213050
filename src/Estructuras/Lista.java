@@ -146,6 +146,7 @@ public class Lista {
                                  Generic tmp2=(Generic)temporal.siguiente.dato;
                                  String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
                                  pw.println("\""+tmp.nombre+"\n"+ tmp.icono_path +"\n"+ tipos[tmp.tipo]+"\"-> \""+tmp2.nombre+"\n"+ tmp2.icono_path +"\n"+ tipos[tmp2.tipo]+"\"");
+                                 pw.println("\""+tmp2.nombre+"\n"+ tmp2.icono_path +"\n"+ tipos[tmp2.tipo]+"\"-> \""+tmp.nombre+"\n"+ tmp.icono_path +"\n"+ tipos[tmp.tipo]+"\"");
                                  temporal=temporal.siguiente;
                             }
                         }

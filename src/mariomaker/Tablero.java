@@ -5,15 +5,24 @@
  */
 package mariomaker;
 
+import Estructuras.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
+
 /**
  *
  * @author Erick
  */
+
 public class Tablero extends javax.swing.JFrame {
 
     /**
      * Creates new form Tablero
      */
+    public Lista lista=new Lista();
     public Tablero() {
         initComponents();
     }
@@ -34,6 +43,7 @@ public class Tablero extends javax.swing.JFrame {
         boton_editar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         label_modo = new javax.swing.JLabel();
+        boton_grafo_lista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MarioMaker v.1.0.0");
@@ -75,6 +85,15 @@ public class Tablero extends javax.swing.JFrame {
         jPanel2.add(label_modo);
         label_modo.setBounds(10, 250, 110, 40);
 
+        boton_grafo_lista.setText("Grafo");
+        boton_grafo_lista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_grafo_listaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(boton_grafo_lista);
+        boton_grafo_lista.setBounds(70, 230, 59, 30);
+
         getContentPane().add(jPanel2);
         jPanel2.setBounds(700, 10, 150, 310);
 
@@ -101,6 +120,27 @@ public class Tablero extends javax.swing.JFrame {
      }
 
     }//GEN-LAST:event_boton_borrarActionPerformed
+
+    private void boton_grafo_listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_grafo_listaActionPerformed
+
+        //1 cola tipo_extraccion
+       //0 Pila tipo_extraccion
+        if(Menu_carga.tipo_extraccion==0)
+        {
+            try {
+                lista.ImprimirLista("Pila");
+            } catch (IOException ex) {
+                Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else
+        {
+            try {
+                lista.ImprimirLista("Cola");
+            } catch (IOException ex) {
+                Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_boton_grafo_listaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,10 +180,15 @@ public class Tablero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_editar;
+    private javax.swing.JButton boton_grafo_lista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_modo;
     // End of variables declaration//GEN-END:variables
+    public void CargarLista(Lista nueva)
+    {
+        lista=nueva;
+    }
 }

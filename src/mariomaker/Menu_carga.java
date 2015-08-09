@@ -300,7 +300,13 @@ public class Menu_carga extends javax.swing.JFrame {
     }//GEN-LAST:event_seleccion_colaActionPerformed
 
     private void boton_continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_continuarActionPerformed
-        pasarTablero();
+        if(lista_objetos.Vacio())
+        {
+            JOptionPane.showMessageDialog(this, "Debe Agregar algun objeto a la lista.");
+        }else
+        {
+            pasarTablero();
+        }
         
     }//GEN-LAST:event_boton_continuarActionPerformed
 
@@ -602,7 +608,8 @@ public class Menu_carga extends javax.swing.JFrame {
        if(seleccion_pila.isSelected())
        {
            tipo_extraccion=0;
-           cola_resultante=lista_objetos.clonarcola();          
+           cola_resultante=lista_objetos.clonarcola();  
+           
        }else
        {
            tipo_extraccion=1;
@@ -611,6 +618,7 @@ public class Menu_carga extends javax.swing.JFrame {
        
        Tablero nuevo=new Tablero();
        nuevo.show(true);
+       nuevo.CargarLista(lista_objetos);
        
     }
     
