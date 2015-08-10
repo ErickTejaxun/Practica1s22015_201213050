@@ -39,7 +39,7 @@ public class Menu_carga extends javax.swing.JFrame {
     public File archivo;
     public FileReader fr;
     public  BufferedReader br;
-    
+    public int contador=1;
     public static int no_suelo=0;
     public static int no_pared=0;
     public static int no_goomba=0;
@@ -57,6 +57,7 @@ public class Menu_carga extends javax.swing.JFrame {
     public Generic seleccionado;
     public int posicion_x;
     public int posicion_y;
+    public Generic[][] tab;
     //1 cola tipo_extraccion
     //0 Pila tipo_extraccion
     
@@ -78,8 +79,6 @@ public class Menu_carga extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
-        jLabel5 = new javax.swing.JLabel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
         tablero2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -89,14 +88,11 @@ public class Menu_carga extends javax.swing.JFrame {
         seleccion_pila = new javax.swing.JRadioButton();
         seleccion_cola = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         Panel_muestra1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        Panel_muestra = new javax.swing.JPanel();
         JPanel_grafica = new javax.swing.JPanel();
         label_grafo = new javax.swing.JLabel();
         boton_graficar = new javax.swing.JButton();
@@ -109,6 +105,7 @@ public class Menu_carga extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lista_tipo = new javax.swing.JComboBox();
+        label_m = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         panel_mostrador = new javax.swing.JPanel();
@@ -134,14 +131,13 @@ public class Menu_carga extends javax.swing.JFrame {
         label_fila_actual = new javax.swing.JLabel();
         label_columna_actual = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        boton_borrar_fila = new javax.swing.JButton();
+        boton_borrar_columna = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mario Maker Guatemalteco v.1.0.0");
         getContentPane().setLayout(null);
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(100, 220, 120, 40);
-        getContentPane().add(jTabbedPane2);
-        jTabbedPane2.setBounds(350, -30, 100, 100);
 
         tablero2.setEnabled(false);
 
@@ -153,7 +149,7 @@ public class Menu_carga extends javax.swing.JFrame {
 
         jLabel6.setText("Vista Previa");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(200, 120, 130, 20);
+        jLabel6.setBounds(300, 130, 130, 20);
 
         Imagen_prueba.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -166,7 +162,7 @@ public class Menu_carga extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Imagen_prueba);
-        Imagen_prueba.setBounds(160, 10, 180, 110);
+        Imagen_prueba.setBounds(280, 10, 180, 110);
 
         boton_continuar.setText("Continuar");
         boton_continuar.addActionListener(new java.awt.event.ActionListener() {
@@ -200,34 +196,31 @@ public class Menu_carga extends javax.swing.JFrame {
         jPanel1.add(jLabel7);
         jLabel7.setBounds(30, 100, 150, 40);
 
+        jButton2.setText(">");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(160, 60, 80, 30);
+
+        jButton3.setText("<");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(30, 60, 80, 30);
+
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(490, 20, 360, 220);
+        jPanel1.setBounds(540, 30, 520, 220);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         Panel_muestra1.setLayout(null);
-
-        jLabel8.setText("Nombre");
-        Panel_muestra1.add(jLabel8);
-        jLabel8.setBounds(30, 70, 90, 30);
-
-        jLabel9.setText("Path");
-        Panel_muestra1.add(jLabel9);
-        jLabel9.setBounds(140, 70, 220, 30);
-
-        jLabel10.setText("Imagen");
-        Panel_muestra1.add(jLabel10);
-        jLabel10.setBounds(360, 70, 110, 30);
-
-        jLabel11.setText("Tipo");
-        Panel_muestra1.add(jLabel11);
-        jLabel11.setBounds(520, 70, 100, 30);
-
-        Panel_muestra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Panel_muestra1.add(Panel_muestra);
-        Panel_muestra.setBounds(20, 110, 720, 320);
-
         jScrollPane1.setViewportView(Panel_muestra1);
 
         jTabbedPane1.addTab("Lista", jScrollPane1);
@@ -248,7 +241,7 @@ public class Menu_carga extends javax.swing.JFrame {
         jTabbedPane1.addTab("Gráfica", JPanel_grafica);
 
         jPanel2.add(jTabbedPane1);
-        jTabbedPane1.setBounds(20, 240, 810, 430);
+        jTabbedPane1.setBounds(20, 240, 1050, 430);
 
         boton_agregar_objeto.setText("Agregar");
         boton_agregar_objeto.addActionListener(new java.awt.event.ActionListener() {
@@ -293,6 +286,8 @@ public class Menu_carga extends javax.swing.JFrame {
         lista_tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suelo", "Pared", "Goomba", "Koopa", "Ficha", "Hongo de vida", "Personaje Principal", "Castillo final" }));
         jPanel2.add(lista_tipo);
         lista_tipo.setBounds(80, 190, 190, 30);
+        jPanel2.add(label_m);
+        label_m.setBounds(430, 60, 190, 90);
 
         tablero2.addTab("Inicio", jPanel2);
 
@@ -388,11 +383,11 @@ public class Menu_carga extends javax.swing.JFrame {
 
         label_no_columnas.setText("4");
         jPanel3.add(label_no_columnas);
-        label_no_columnas.setBounds(970, 600, 80, 30);
+        label_no_columnas.setBounds(1000, 600, 80, 30);
 
         label_no_filas.setText("2");
         jPanel3.add(label_no_filas);
-        label_no_filas.setBounds(970, 570, 80, 30);
+        label_no_filas.setBounds(1000, 570, 80, 30);
 
         boton_add_fila.setText("Fila");
         boton_add_fila.addActionListener(new java.awt.event.ActionListener() {
@@ -423,17 +418,34 @@ public class Menu_carga extends javax.swing.JFrame {
         jPanel4.add(jLabel16);
         jLabel16.setBounds(10, 50, 50, 20);
 
-        label_fila_actual.setText("0");
+        label_fila_actual.setText("1");
         jPanel4.add(label_fila_actual);
-        label_fila_actual.setBounds(70, 50, 100, 20);
+        label_fila_actual.setBounds(70, 50, 40, 20);
 
-        label_columna_actual.setText("0");
+        label_columna_actual.setText("1");
         jPanel4.add(label_columna_actual);
-        label_columna_actual.setBounds(70, 90, 100, 20);
+        label_columna_actual.setBounds(70, 90, 50, 20);
 
         jLabel17.setText("Columna");
         jPanel4.add(jLabel17);
         jLabel17.setBounds(10, 90, 50, 20);
+
+        boton_borrar_fila.setText("Fila");
+        boton_borrar_fila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_borrar_filaActionPerformed(evt);
+            }
+        });
+        jPanel4.add(boton_borrar_fila);
+        boton_borrar_fila.setBounds(110, 40, 70, 30);
+
+        boton_borrar_columna.setText("Columna");
+        jPanel4.add(boton_borrar_columna);
+        boton_borrar_columna.setBounds(107, 90, 73, 30);
+
+        jLabel18.setText("Borrar");
+        jPanel4.add(jLabel18);
+        jLabel18.setBounds(110, 10, 70, 20);
 
         jPanel3.add(jPanel4);
         jPanel4.setBounds(900, 390, 190, 140);
@@ -511,6 +523,8 @@ public class Menu_carga extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "Tablero Habilitado");
         }
         
+        tab=new Generic[Integer.valueOf(label_no_filas.getText())][Integer.valueOf(label_no_columnas.getText())];
+        
     }//GEN-LAST:event_boton_continuarActionPerformed
 
     private void boton_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_borrarActionPerformed
@@ -569,20 +583,23 @@ public class Menu_carga extends javax.swing.JFrame {
     int numero=lista_objetos.tamanho();
     int ancho_bloque=panel_mostrador.getWidth()/numero;
     int altura_bloque=panel_mostrador.getHeight();
+    boolean encontrado=false;
     for(int cont=0;cont<numero;cont++)
     {
         if((cont*ancho_bloque<=posicion_x)&&(posicion_x<=(cont*ancho_bloque+ancho_bloque)))
         {
             if(seleccion_cola.isSelected())
             {
+                //Extrayendo como pila
                 seleccionado=(Generic)lista_objetos.RCola(cont).dato;
             }
             else
             {
+                //Estrayendo como cola
                 seleccionado=(Generic)lista_objetos.RPila(cont).dato;
             }
            
-            //Aque vemos que hace al elegirlo XD
+            //Aque vemos que hace                                                                                                                                                                                                                                                                                                                                                                                                                                                al elegirlo XD
             //VER ver, BORRAR borrar, EDITAR descolar/desapilar
             if(label_modo.getText().equals("VER"))
             {
@@ -594,8 +611,14 @@ public class Menu_carga extends javax.swing.JFrame {
             {
                 
             }
-            if(label_modo.getText().equals("BORRAR"))
+            if(label_modo.getText().equals("BORRAR")||encontrado==false)
             {
+                    encontrado=true;
+                lista_objetos.eliminar (seleccionado);              
+                
+                      tablero2.enable(true);
+                      dibujarEnMostrador();                 
+                   tab=new Generic[Integer.valueOf(label_no_filas.getText())][Integer.valueOf(label_no_columnas.getText())];
             }
             
             
@@ -647,6 +670,33 @@ public class Menu_carga extends javax.swing.JFrame {
         label_no_columnas.setText(String.valueOf(columna));
     }//GEN-LAST:event_boton_add_columnaActionPerformed
 
+    private void boton_borrar_filaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_borrar_filaActionPerformed
+        
+    }//GEN-LAST:event_boton_borrar_filaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(contador==1)
+        {
+            contador=130;
+        }
+        else
+        {
+            contador--;
+        }
+        mostrar_prueba2();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(contador==130)
+        {
+            contador=1;
+        }else
+        {
+            contador++;
+        }
+        mostrar_prueba2();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -686,12 +736,13 @@ public class Menu_carga extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Imagen_prueba;
     private javax.swing.JPanel JPanel_grafica;
-    private javax.swing.JPanel Panel_muestra;
     private javax.swing.JPanel Panel_muestra1;
     private javax.swing.JButton boton_add_columna;
     private javax.swing.JButton boton_add_fila;
     private javax.swing.JButton boton_agregar_objeto;
     private javax.swing.JButton boton_borrar;
+    private javax.swing.JButton boton_borrar_columna;
+    private javax.swing.JButton boton_borrar_fila;
     private javax.swing.JButton boton_continuar;
     private javax.swing.JButton boton_editar;
     private javax.swing.JButton boton_graficar;
@@ -701,23 +752,21 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -726,10 +775,10 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel label_columna_actual;
     private javax.swing.JLabel label_fila_actual;
     private javax.swing.JLabel label_grafo;
+    private javax.swing.JLabel label_m;
     private javax.swing.JLabel label_modo;
     private javax.swing.JLabel label_no_columnas;
     private javax.swing.JLabel label_no_filas;
@@ -751,15 +800,21 @@ public class Menu_carga extends javax.swing.JFrame {
             seleccion.setFileFilter(filtro);
             seleccion.setFileSelectionMode(JFileChooser.FILES_ONLY);
             int resultado= seleccion.showOpenDialog(this);
-            if(resultado==JFileChooser.APPROVE_OPTION){
-            File nombre=seleccion.getSelectedFile();
-            path=nombre.toString();
-            String url=seleccion.getSelectedFile().getAbsolutePath();           
-            this.setTitle(url);
-        }
-        //JOptionPane.showMessageDialog(this, path);
-        mostrar_Prueba();
+            if(resultado==JFileChooser.APPROVE_OPTION)
+                {
+                File nombre=seleccion.getSelectedFile();
+                path=nombre.toString();
+                String url=seleccion.getSelectedFile().getAbsolutePath();           
+                }
+            mostrar_Prueba();
+            txt_path_imagen.setText(path);
+    }
+    public void mostrar_prueba2()
+    {
+        path=this.PathActual()+"\\img\\a ("+contador+").png";
         txt_path_imagen.setText(path);
+        mostrar_Prueba();
+        this.repaint();
     }
     public void mostrar_Prueba()
     {
@@ -929,12 +984,12 @@ public class Menu_carga extends javax.swing.JFrame {
     
     public void ImprimirMuestra()
     {
-        int ancho=Panel_muestra1.getHeight();
-        int altura=Panel_muestra1.getWidth();
-        Lista temporal=lista_objetos.clonar();
-        Panel_muestra.removeAll();
-        Panel_muestra.setLayout(null);
-        int contador=0;
+//        int ancho=Panel_muestra1.getHeight();
+//        int altura=Panel_muestra1.getWidth();
+//        Lista temporal=lista_objetos.clonar();
+//        Panel_muestra.removeAll();
+//        Panel_muestra.setLayout(null);
+//        int contador=0;
 //        while(!temporal.Vacio())
 //        {
 //            contador++;
@@ -1018,7 +1073,6 @@ public class Menu_carga extends javax.swing.JFrame {
                 for(int x=0;x<numero;x++)
                 {
                     Generic obj_temporal=(Generic)temporal.dato;
-
                     ImageIcon imagen=new ImageIcon(obj_temporal.icono_path);
                     Icon icono=new ImageIcon(imagen.getImage().getScaledInstance(ancho_bloque, altura_bloque, Image.SCALE_DEFAULT));
                     obj_temporal.setIcon(icono);

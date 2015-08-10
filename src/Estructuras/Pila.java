@@ -25,7 +25,7 @@ public class Pila extends Lista {
     {
         InsertarAlFrente(dato);
     }
-    public Nodo DesApilar()
+    public Nodo DesApilar() throws Exception
     {
        return ExtraerCabeza();
     }

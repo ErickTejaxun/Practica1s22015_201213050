@@ -42,6 +42,8 @@ public class Lista {
            cabeza.siguiente=temp;
            cabeza=temp;
         }
+        
+        
     }
     public void InsertarAlFin(Object dato)
     {
@@ -82,28 +84,17 @@ public class Lista {
         
         return resultado;
     }
-    public Nodo ExtraerCabeza()
+    public Nodo ExtraerCabeza()throws Exception
     {
-        Nodo resultado=null;
-        if(Vacio())
-        {
-            resultado=null;
-            JOptionPane.showMessageDialog(null, "Error, estructura vacia.");
-        }
-        else
-        {
-            resultado=cabeza;
-            if(cabeza.anterior!=null)
-            {
-                cabeza=cabeza.anterior;
-            }else
-            {
-                cabeza=cola=null;
-            }
-            
+	 if (Vacio())
+	 	 throw new Exception ("Pila vacía, no se puede extraer.");
+	 Nodo aux = cabeza;
+	 cabeza = cabeza.anterior;
+         cabeza.anterior=aux.anterior.anterior;
+	 return aux;            
             //cabeza.siguiente=null;
-        }
-        return resultado;
+        
+        
     }
     public boolean Vacio()
     {
@@ -323,6 +314,44 @@ public class Lista {
         }
         
     }
+    
+        public void eliminar (Generic dato)
+        {
+        String nombre=dato.nombre;
+        int tipo=dato.tipo;
+        String path=dato.icono_path;
+        Nodo actual;
+        boolean encontrado = false;
+        actual = cabeza;
+        // Bucle de búsqueda
+        while ((actual != null) && (!encontrado))
+        {
+         
+         Generic temp=(Generic)actual.dato;
+         encontrado = (temp.nombre.equals(nombre) && temp.tipo==tipo && temp.icono_path.equals(path));
+         if (!encontrado)
+         actual = actual.siguiente;
+        }
+         
+        if (actual != null)
+        {
+         
+         if (actual == cabeza)
+         {
+         cabeza = actual.anterior;
+         if (actual.siguiente != null)
+         actual.siguiente.anterior = null;
+         }
+         else if (actual.siguiente != null) // No es el último nodo
+         {
+         actual.anterior.siguiente = actual.siguiente;
+         actual.siguiente.anterior = actual.anterior;
+         }
+         else // último nodo
+         actual.anterior.siguiente = null;
+         actual = null;
+        }
+}
     
    
     

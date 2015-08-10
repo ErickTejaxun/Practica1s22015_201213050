@@ -1,42 +1,32 @@
 digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue", color="blue:red"]rankdir=BT
 "Nombre:Erick
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Brick 2D.png
-Tipo:Suelo"-> "Nombre:ERcik
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item (Fake).png
+Tipo:Suelo"-> "Nombre:2
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 2D.png
 Tipo:Pared"
-"Nombre:ERcik
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item (Fake).png
+"Nombre:2
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 2D.png
 Tipo:Pared"-> "Nombre:Erick
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Brick 2D.png
 Tipo:Suelo"
-"Nombre:ERcik
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item (Fake).png
-Tipo:Pared"-> "Nombre:Goomba
+"Nombre:2
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 2D.png
+Tipo:Pared"-> "Nombre:3
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
 Tipo:Goomba"
-"Nombre:Goomba
+"Nombre:3
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
-Tipo:Goomba"-> "Nombre:ERcik
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item (Fake).png
+Tipo:Goomba"-> "Nombre:2
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 2D.png
 Tipo:Pared"
-"Nombre:Goomba
+"Nombre:3
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
-Tipo:Goomba"-> "Nombre:Koopai
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Jack O' Goomba.png
-Tipo:Koopa"
-"Nombre:Koopai
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Jack O' Goomba.png
-Tipo:Koopa"-> "Nombre:Goomba
+Tipo:Goomba"-> "Nombre:Koopa
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\P-Wing.png
+Tipo:Ficha"
+"Nombre:Koopa
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\P-Wing.png
+Tipo:Ficha"-> "Nombre:3
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
 Tipo:Goomba"
-"Nombre:Koopai
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Jack O' Goomba.png
-Tipo:Koopa"-> "Nombre:Fichachan
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Coin - Gold Red.png
-Tipo:Ficha"
-"Nombre:Fichachan
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Coin - Gold Red.png
-Tipo:Ficha"-> "Nombre:Koopai
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Jack O' Goomba.png
-Tipo:Koopa"
 }
