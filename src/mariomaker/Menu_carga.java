@@ -55,6 +55,8 @@ public class Menu_carga extends javax.swing.JFrame {
     public static Cola cola_resultante;
     public static Tablero tablero =new Tablero();
     public Generic seleccionado;
+    public int posicion_x;
+    public int posicion_y;
     //1 cola tipo_extraccion
     //0 Pila tipo_extraccion
     
@@ -115,10 +117,23 @@ public class Menu_carga extends javax.swing.JFrame {
         boton_editar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         label_modo = new javax.swing.JLabel();
-        boton_grafo_lista = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         panel_tablero = new javax.swing.JPanel();
         label_tipo = new javax.swing.JLabel();
         nombre_objeto = new javax.swing.JLabel();
+        boton_grafo_lista = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        label_no_columnas = new javax.swing.JLabel();
+        label_no_filas = new javax.swing.JLabel();
+        boton_add_fila = new javax.swing.JButton();
+        boton_add_columna = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        label_fila_actual = new javax.swing.JLabel();
+        label_columna_actual = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mario Maker Guatemalteco v.1.0.0");
@@ -320,9 +335,39 @@ public class Menu_carga extends javax.swing.JFrame {
         jPanel5.add(jLabel12);
         jLabel12.setBounds(10, 220, 90, 30);
 
-        label_modo.setText("Editor");
+        label_modo.setText("VER");
         jPanel5.add(label_modo);
         label_modo.setBounds(10, 250, 80, 40);
+
+        jButton1.setText("Vision");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton1);
+        jButton1.setBounds(50, 220, 90, 40);
+
+        jPanel3.add(jPanel5);
+        jPanel5.setBounds(900, 10, 150, 310);
+
+        panel_tablero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_tablero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel_tableroMouseClicked(evt);
+            }
+        });
+        panel_tablero.setLayout(null);
+        jPanel3.add(panel_tablero);
+        panel_tablero.setBounds(10, 140, 880, 510);
+
+        label_tipo.setText("Tipo_objeto");
+        jPanel3.add(label_tipo);
+        label_tipo.setBounds(900, 350, 80, 40);
+
+        nombre_objeto.setText("Objeto");
+        jPanel3.add(nombre_objeto);
+        nombre_objeto.setBounds(900, 320, 90, 30);
 
         boton_grafo_lista.setText("Grafo");
         boton_grafo_lista.addActionListener(new java.awt.event.ActionListener() {
@@ -330,28 +375,73 @@ public class Menu_carga extends javax.swing.JFrame {
                 boton_grafo_listaActionPerformed(evt);
             }
         });
-        jPanel5.add(boton_grafo_lista);
-        boton_grafo_lista.setBounds(60, 250, 80, 30);
+        jPanel3.add(boton_grafo_lista);
+        boton_grafo_lista.setBounds(970, 330, 80, 30);
 
-        jPanel3.add(jPanel5);
-        jPanel5.setBounds(900, 10, 150, 310);
+        jLabel13.setText("No. Filas");
+        jPanel3.add(jLabel13);
+        jLabel13.setBounds(900, 570, 70, 30);
 
-        panel_tablero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(panel_tablero);
-        panel_tablero.setBounds(10, 140, 880, 510);
+        jLabel14.setText("No. Columnas");
+        jPanel3.add(jLabel14);
+        jLabel14.setBounds(900, 610, 70, 20);
 
-        label_tipo.setText("Tipo_objeto");
-        jPanel3.add(label_tipo);
-        label_tipo.setBounds(910, 370, 80, 40);
+        label_no_columnas.setText("4");
+        jPanel3.add(label_no_columnas);
+        label_no_columnas.setBounds(970, 600, 80, 30);
 
-        nombre_objeto.setText("Objeto");
-        jPanel3.add(nombre_objeto);
-        nombre_objeto.setBounds(910, 340, 90, 30);
+        label_no_filas.setText("2");
+        jPanel3.add(label_no_filas);
+        label_no_filas.setBounds(970, 570, 80, 30);
+
+        boton_add_fila.setText("Fila");
+        boton_add_fila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_add_filaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(boton_add_fila);
+        boton_add_fila.setBounds(900, 540, 70, 23);
+
+        boton_add_columna.setText("Columna");
+        boton_add_columna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_add_columnaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(boton_add_columna);
+        boton_add_columna.setBounds(980, 540, 73, 23);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setLayout(null);
+
+        jLabel15.setText("Selección Actual");
+        jPanel4.add(jLabel15);
+        jLabel15.setBounds(10, 10, 150, 30);
+
+        jLabel16.setText("Fila");
+        jPanel4.add(jLabel16);
+        jLabel16.setBounds(10, 50, 50, 20);
+
+        label_fila_actual.setText("0");
+        jPanel4.add(label_fila_actual);
+        label_fila_actual.setBounds(70, 50, 100, 20);
+
+        label_columna_actual.setText("0");
+        jPanel4.add(label_columna_actual);
+        label_columna_actual.setBounds(70, 90, 100, 20);
+
+        jLabel17.setText("Columna");
+        jPanel4.add(jLabel17);
+        jLabel17.setBounds(10, 90, 50, 20);
+
+        jPanel3.add(jPanel4);
+        jPanel4.setBounds(900, 390, 190, 140);
 
         tablero2.addTab("Tablero", jPanel3);
 
         getContentPane().add(tablero2);
-        tablero2.setBounds(0, 0, 1060, 690);
+        tablero2.setBounds(0, 0, 1100, 690);
 
         setBounds(0, 0, 1124, 781);
     }// </editor-fold>//GEN-END:initComponents
@@ -474,14 +564,14 @@ public class Menu_carga extends javax.swing.JFrame {
     private void panel_mostradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_mostradorMouseClicked
     Component[] lista_temporal=panel_mostrador.getComponents(); 
     //Generic[] lista_temporal=(Generic[]) panel_mostrador.getComponents(); 
-    int x=evt.getX();
-    int y=evt.getY();
+    posicion_x=evt.getX();
+    posicion_y=evt.getY();
     int numero=lista_objetos.tamanho();
     int ancho_bloque=panel_mostrador.getWidth()/numero;
     int altura_bloque=panel_mostrador.getHeight();
     for(int cont=0;cont<numero;cont++)
     {
-        if((cont*ancho_bloque<=x)&&(x<=(cont*ancho_bloque+ancho_bloque)))
+        if((cont*ancho_bloque<=posicion_x)&&(posicion_x<=(cont*ancho_bloque+ancho_bloque)))
         {
             if(seleccion_cola.isSelected())
             {
@@ -491,14 +581,71 @@ public class Menu_carga extends javax.swing.JFrame {
             {
                 seleccionado=(Generic)lista_objetos.RPila(cont).dato;
             }
-            nombre_objeto.setText(seleccionado.nombre);
-            String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
-            label_tipo.setText(tipos[seleccionado.tipo]);
+           
+            //Aque vemos que hace al elegirlo XD
+            //VER ver, BORRAR borrar, EDITAR descolar/desapilar
+            if(label_modo.getText().equals("VER"))
+            {
+                nombre_objeto.setText(seleccionado.nombre);
+                String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
+                label_tipo.setText(tipos[seleccionado.tipo]);
+            }
+            if(label_modo.getText().equals("EDITAR"))
+            {
+                
+            }
+            if(label_modo.getText().equals("BORRAR"))
+            {
+            }
+            
+            
         }
     }
     
     //nombre_objeto.setText(;
     }//GEN-LAST:event_panel_mostradorMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        label_modo.setText("VER");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void panel_tableroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_tableroMouseClicked
+     int x=evt.getX();
+     int y=evt.getY();
+     int no_filas=Integer.valueOf(label_no_filas.getText());
+     int no_columnas=Integer.valueOf(label_no_columnas.getText());
+     int ancho=panel_tablero.getWidth();
+     int altura=panel_tablero.getHeight();
+     int ancho_casilla=ancho/no_columnas;
+     int altura_casilla=altura/no_filas;
+     for(int n=0;n<no_filas;n++)
+     {
+         for(int m=0;m<no_columnas;m++)
+         {
+             //(cont*ancho_bloque<=posicion_x)&&(posicion_x<=(cont*ancho_bloque+ancho_bloque))
+            if((n*altura_casilla<=y)&&(y<=(n*altura_casilla+altura_casilla)))
+            {
+                if((m*ancho_casilla<=x)&&(x<=(m*ancho_casilla+ancho_casilla)))
+                {
+                        label_fila_actual.setText(String.valueOf(n+1));
+                        label_columna_actual.setText(String.valueOf(m+1));
+                }
+              
+            }
+             
+         }
+     }
+    }//GEN-LAST:event_panel_tableroMouseClicked
+
+    private void boton_add_filaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_add_filaActionPerformed
+        int fila=Integer.valueOf(label_no_filas.getText())+1;
+        label_no_filas.setText(String.valueOf(fila));
+    }//GEN-LAST:event_boton_add_filaActionPerformed
+
+    private void boton_add_columnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_add_columnaActionPerformed
+        int columna=Integer.valueOf(label_no_columnas.getText())+1;
+        label_no_columnas.setText(String.valueOf(columna));
+    }//GEN-LAST:event_boton_add_columnaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -541,6 +688,8 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_grafica;
     private javax.swing.JPanel Panel_muestra;
     private javax.swing.JPanel Panel_muestra1;
+    private javax.swing.JButton boton_add_columna;
+    private javax.swing.JButton boton_add_fila;
     private javax.swing.JButton boton_agregar_objeto;
     private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_continuar;
@@ -551,10 +700,16 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -566,13 +721,18 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JLabel label_columna_actual;
+    private javax.swing.JLabel label_fila_actual;
     private javax.swing.JLabel label_grafo;
     private javax.swing.JLabel label_modo;
+    private javax.swing.JLabel label_no_columnas;
+    private javax.swing.JLabel label_no_filas;
     private javax.swing.JLabel label_tipo;
     private javax.swing.JComboBox lista_tipo;
     public static javax.swing.JLabel nombre_objeto;

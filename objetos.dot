@@ -1,82 +1,42 @@
 digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue", color="blue:red"]rankdir=BT
 "Nombre:Erick
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Brick 2D.png
-Tipo:Suelo"-> "Nombre:Erick2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Propeller.png
+Tipo:Suelo"-> "Nombre:ERcik
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item (Fake).png
 Tipo:Pared"
-"Nombre:Erick2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Propeller.png
+"Nombre:ERcik
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item (Fake).png
 Tipo:Pared"-> "Nombre:Erick
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Brick 2D.png
 Tipo:Suelo"
-"Nombre:Erick2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Propeller.png
-Tipo:Pared"-> "Nombre:Pow
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - POW.png
-Tipo:Pared"
-"Nombre:Pow
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - POW.png
-Tipo:Pared"-> "Nombre:Erick2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Propeller.png
-Tipo:Pared"
-"Nombre:Pow
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - POW.png
-Tipo:Pared"-> "Nombre:Gombabox
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item.png
+"Nombre:ERcik
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item (Fake).png
+Tipo:Pared"-> "Nombre:Goomba
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
 Tipo:Goomba"
-"Nombre:Gombabox
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item.png
-Tipo:Goomba"-> "Nombre:Pow
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - POW.png
+"Nombre:Goomba
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
+Tipo:Goomba"-> "Nombre:ERcik
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item (Fake).png
 Tipo:Pared"
-"Nombre:Gombabox
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item.png
-Tipo:Goomba"-> "Nombre:Koopakey
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Key.png
+"Nombre:Goomba
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
+Tipo:Goomba"-> "Nombre:Koopai
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Jack O' Goomba.png
 Tipo:Koopa"
-"Nombre:Koopakey
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Key.png
-Tipo:Koopa"-> "Nombre:Gombabox
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Box - Item.png
+"Nombre:Koopai
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Jack O' Goomba.png
+Tipo:Koopa"-> "Nombre:Goomba
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
 Tipo:Goomba"
-"Nombre:Koopakey
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Key.png
-Tipo:Koopa"-> "Nombre:RedCoin
+"Nombre:Koopai
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Jack O' Goomba.png
+Tipo:Koopa"-> "Nombre:Fichachan
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Coin - Gold Red.png
 Tipo:Ficha"
-"Nombre:RedCoin
+"Nombre:Fichachan
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Coin - Gold Red.png
-Tipo:Ficha"-> "Nombre:Koopakey
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Key.png
+Tipo:Ficha"-> "Nombre:Koopai
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Jack O' Goomba.png
 Tipo:Koopa"
-"Nombre:RedCoin
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Coin - Gold Red.png
-Tipo:Ficha"-> "Nombre:HongoVida
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Monochrome Heart.png
-Tipo:Hongo"
-"Nombre:HongoVida
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Monochrome Heart.png
-Tipo:Hongo"-> "Nombre:RedCoin
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Coin - Gold Red.png
-Tipo:Ficha"
-"Nombre:HongoVida
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Monochrome Heart.png
-Tipo:Hongo"-> "Nombre:Mario
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Paper Mario.png
-Tipo:Personaje Principal"
-"Nombre:Mario
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Paper Mario.png
-Tipo:Personaje Principal"-> "Nombre:HongoVida
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Monochrome Heart.png
-Tipo:Hongo"
-"Nombre:Mario
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Paper Mario.png
-Tipo:Personaje Principal"-> "Nombre:Bowser
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Paper Bowser.png
-Tipo:Castillo"
-"Nombre:Bowser
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Paper Bowser.png
-Tipo:Castillo"-> "Nombre:Mario
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Paper Mario.png
-Tipo:Personaje Principal"
 }

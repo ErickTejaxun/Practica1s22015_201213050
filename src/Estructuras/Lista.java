@@ -258,7 +258,8 @@ public class Lista {
         return resultado;
        
     }
-        public Nodo RCola(int numero)
+    
+    public Nodo RCola(int numero)
     {
         Nodo resultado=null;
         if(Vacio())
@@ -276,6 +277,51 @@ public class Lista {
         }
         return resultado;
        
+    }
+    public void eliminarCola(int indice)
+    {
+        Nodo temporal=cola;
+        
+        
+        for(int n=0;n<indice;n++)
+        {
+            temporal=temporal.siguiente;            
+        }
+        
+        if(temporal.siguiente!=null)
+        {
+            Nodo temporal2=temporal;
+            temporal.siguiente=temporal.siguiente.siguiente;
+            temporal.anterior=temporal2.anterior;           
+        }else
+        {
+            cabeza=cabeza.anterior;
+            cabeza.siguiente=null;
+        }
+        
+    }
+
+    public void eliminarPila(int indice)
+    {
+        Nodo temporal=cabeza;
+        
+        
+        for(int n=0;n<indice;n++)
+        {
+            temporal=temporal.anterior;            
+        }
+        
+        if(temporal.anterior!=null)
+        {
+            Nodo temporal2=temporal;
+            temporal.siguiente=temporal.siguiente.siguiente;
+            temporal.anterior=temporal2.anterior;           
+        }else
+        {
+            cola=cola.siguiente;
+            cola.anterior=null;
+        }
+        
     }
     
    
