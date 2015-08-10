@@ -224,6 +224,17 @@ public class Lista {
         
         return cola_temporal;
     }
+    public int tamanho()
+    {
+        int tamanho=0;
+        Nodo temporal=cola;
+        while(temporal.siguiente!=null)
+        {
+            tamanho++;
+            temporal=temporal.siguiente;
+        }     
+        return tamanho;
+    }
     
     
 }

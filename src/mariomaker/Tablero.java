@@ -23,6 +23,10 @@ public class Tablero extends javax.swing.JFrame {
      * Creates new form Tablero
      */
     public Lista lista=new Lista();
+    public static int tipo_extraccion;
+    public static Cola cola;
+    public static Pila pila;
+    public static Lista lista_objetos=new Lista();
     public Tablero() {
         initComponents();
     }
@@ -125,17 +129,17 @@ public class Tablero extends javax.swing.JFrame {
 
         //1 cola tipo_extraccion
        //0 Pila tipo_extraccion
-        if(Menu_carga.tipo_extraccion==0)
+        if(tipo_extraccion==0)
         {
             try {
-                lista.ImprimirLista("Pila");
+                lista_objetos.ImprimirLista("Pila");
             } catch (IOException ex) {
                 Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else
         {
             try {
-                lista.ImprimirLista("Cola");
+                lista_objetos.ImprimirLista("Cola");
             } catch (IOException ex) {
                 Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
             }

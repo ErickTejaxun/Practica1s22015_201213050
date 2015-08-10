@@ -1,12 +1,42 @@
 digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue", color="blue:red"]rankdir=BT
-"Erick
-Z:\Descarga\peroque.jpg
-Suelo"-> "Pared2
-Z:\Descarga\spidiakatsuky.jpg
+"Suelo1
+Z:\Descarga\zackember.jpg
+Suelo"-> "Pared
+Z:\Descarga\11151020_849548611790793_706509031286357333_n.jpg
 Pared"
-"Pared2
-Z:\Descarga\spidiakatsuky.jpg
-Pared"-> "Erick
-Z:\Descarga\peroque.jpg
+"Pared
+Z:\Descarga\11151020_849548611790793_706509031286357333_n.jpg
+Pared"-> "Suelo1
+Z:\Descarga\zackember.jpg
 Suelo"
+"Pared
+Z:\Descarga\11151020_849548611790793_706509031286357333_n.jpg
+Pared"-> "Goomba1
+Z:\Descarga\baleberga.jpg
+Goomba"
+"Goomba1
+Z:\Descarga\baleberga.jpg
+Goomba"-> "Pared
+Z:\Descarga\11151020_849548611790793_706509031286357333_n.jpg
+Pared"
+"Goomba1
+Z:\Descarga\baleberga.jpg
+Goomba"-> "Koopiyta
+Z:\Descarga\cesarerestu.jpg
+Koopa"
+"Koopiyta
+Z:\Descarga\cesarerestu.jpg
+Koopa"-> "Goomba1
+Z:\Descarga\baleberga.jpg
+Goomba"
+"Koopiyta
+Z:\Descarga\cesarerestu.jpg
+Koopa"-> "Fichita
+Z:\Descarga\noposganás.jpg
+Ficha"
+"Fichita
+Z:\Descarga\noposganás.jpg
+Ficha"-> "Koopiyta
+Z:\Descarga\cesarerestu.jpg
+Koopa"
 }
