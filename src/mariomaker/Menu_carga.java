@@ -519,7 +519,7 @@ public class Menu_carga extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     public void ElegirImagen()
     {
-            seleccion =new JFileChooser("Z:\\Descarga");
+            seleccion =new JFileChooser(this.PathActual());
             FileNameExtensionFilter filtro=new FileNameExtensionFilter("jpg","jpg","png","mbp");
             seleccion.setFileFilter(filtro);
             seleccion.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -761,21 +761,23 @@ public class Menu_carga extends javax.swing.JFrame {
     }
     public void dibujarEnMostrador()
     {
-        int ancho_bloque=panel_mostrador.getWidth();
-        int altura_bloque=panel_mostrador.getHeight();
+       
+        panel_mostrador.removeAll();
         int numero=lista_objetos.tamanho();
+        int ancho_bloque=panel_mostrador.getWidth()/numero;
+        int altura_bloque=panel_mostrador.getHeight();
         Nodo temporal=lista_objetos.cola;
-        for(int x=0;x+1<numero;x++)
+        for(int x=0;x<numero;x++)
         {
             Generic obj_temporal=(Generic)temporal.dato;
             
             ImageIcon imagen=new ImageIcon(obj_temporal.icono_path);
-            Icon icono=new ImageIcon(imagen.getImage().getScaledInstance(ancho_bloque/numero, altura_bloque, Image.SCALE_DEFAULT));
+            Icon icono=new ImageIcon(imagen.getImage().getScaledInstance(ancho_bloque, altura_bloque, Image.SCALE_DEFAULT));
             obj_temporal.setIcon(icono);
             panel_mostrador.add(obj_temporal);
-            obj_temporal.setBounds(ancho_bloque*x,altura_bloque*x, ancho_bloque/numero, altura_bloque);
-            panel_mostrador.repaint();
+            obj_temporal.setBounds((ancho_bloque*x),0, ancho_bloque, altura_bloque);
             obj_temporal.repaint();
+            panel_mostrador.repaint();
             temporal=temporal.siguiente;
         }
         

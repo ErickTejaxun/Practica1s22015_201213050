@@ -1,42 +1,42 @@
 digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue", color="blue:red"]rankdir=BT
-"Suelo1
-Z:\Descarga\zackember.jpg
-Suelo"-> "Pared
-Z:\Descarga\11151020_849548611790793_706509031286357333_n.jpg
+"Erick
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Brick 3D.png
+Suelo"-> "4
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 3D.png
 Pared"
-"Pared
-Z:\Descarga\11151020_849548611790793_706509031286357333_n.jpg
-Pared"-> "Suelo1
-Z:\Descarga\zackember.jpg
+"4
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 3D.png
+Pared"-> "Erick
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Brick 3D.png
 Suelo"
-"Pared
-Z:\Descarga\11151020_849548611790793_706509031286357333_n.jpg
-Pared"-> "Goomba1
-Z:\Descarga\baleberga.jpg
-Goomba"
-"Goomba1
-Z:\Descarga\baleberga.jpg
-Goomba"-> "Pared
-Z:\Descarga\11151020_849548611790793_706509031286357333_n.jpg
+"4
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 3D.png
+Pared"-> "Hongo
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Mushroom - 1-Up.png
+Hongo"
+"Hongo
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Mushroom - 1-Up.png
+Hongo"-> "4
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 3D.png
 Pared"
-"Goomba1
-Z:\Descarga\baleberga.jpg
-Goomba"-> "Koopiyta
-Z:\Descarga\cesarerestu.jpg
-Koopa"
-"Koopiyta
-Z:\Descarga\cesarerestu.jpg
-Koopa"-> "Goomba1
-Z:\Descarga\baleberga.jpg
-Goomba"
-"Koopiyta
-Z:\Descarga\cesarerestu.jpg
-Koopa"-> "Fichita
-Z:\Descarga\noposganás.jpg
-Ficha"
-"Fichita
-Z:\Descarga\noposganás.jpg
-Ficha"-> "Koopiyta
-Z:\Descarga\cesarerestu.jpg
-Koopa"
+"Hongo
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Mushroom - 1-Up.png
+Hongo"-> "3
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Retro P-Wing.png
+Personaje Principal"
+"3
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Retro P-Wing.png
+Personaje Principal"-> "Hongo
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Mushroom - 1-Up.png
+Hongo"
+"3
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Retro P-Wing.png
+Personaje Principal"-> "toad
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Toad - Yellow.png
+Castillo"
+"toad
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Toad - Yellow.png
+Castillo"-> "3
+C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Retro P-Wing.png
+Personaje Principal"
 }
