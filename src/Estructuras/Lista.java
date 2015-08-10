@@ -136,7 +136,7 @@ public class Lista {
                         {
                             Generic tmp=(Generic)temporal.dato;
                             String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
-                            pw.println("\""+tmp.nombre+"\n"+ tmp.icono_path +"\n"+ tipos[tmp.tipo]+"\"");
+                            pw.println("\"Nombre:"+tmp.nombre+"\nPath:"+ tmp.icono_path +"\nTipo:"+ tipos[tmp.tipo]+"\"");
                             
                         }else
                         {
@@ -145,8 +145,8 @@ public class Lista {
                                  Generic tmp=(Generic)temporal.dato;
                                  Generic tmp2=(Generic)temporal.siguiente.dato;
                                  String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
-                                 pw.println("\""+tmp.nombre+"\n"+ tmp.icono_path +"\n"+ tipos[tmp.tipo]+"\"-> \""+tmp2.nombre+"\n"+ tmp2.icono_path +"\n"+ tipos[tmp2.tipo]+"\"");
-                                 pw.println("\""+tmp2.nombre+"\n"+ tmp2.icono_path +"\n"+ tipos[tmp2.tipo]+"\"-> \""+tmp.nombre+"\n"+ tmp.icono_path +"\n"+ tipos[tmp.tipo]+"\"");
+                                 pw.println("\"Nombre:"+tmp.nombre+"\nPath:"+ tmp.icono_path +"\nTipo:"+ tipos[tmp.tipo]+"\"-> \"Nombre:"+tmp2.nombre+"\nPath:"+ tmp2.icono_path +"\nTipo:"+ tipos[tmp2.tipo]+"\"");
+                                 pw.println("\"Nombre:"+tmp2.nombre+"\nPath:"+ tmp2.icono_path +"\nTipo:"+ tipos[tmp2.tipo]+"\"-> \"Nombre:"+tmp.nombre+"\nPath:"+ tmp.icono_path +"\nTipo:"+ tipos[tmp.tipo]+"\"");
                                  temporal=temporal.siguiente;
                             }
                         }
@@ -233,8 +233,51 @@ public class Lista {
             tamanho++;
             temporal=temporal.siguiente;
         }     
-        return tamanho;
+        return tamanho+1;
+    }
+ 
+    public void click(java.awt.event.MouseEvent evt) {                                           
+       JOptionPane.showMessageDialog(null, this.nombre);
+    } 
+    public Nodo RPila(int numero)
+    {
+        Nodo resultado=null;
+        if(Vacio())
+        {
+            resultado=null;
+            JOptionPane.showMessageDialog(null, "Error, estructura vacia.");
+        }
+        else
+        {
+            resultado=cabeza;
+            for(int n=0;n<numero;n++)
+            {
+                resultado=resultado.anterior;
+            }
+        }
+        return resultado;
+       
+    }
+        public Nodo RCola(int numero)
+    {
+        Nodo resultado=null;
+        if(Vacio())
+        {
+            resultado=null;
+            JOptionPane.showMessageDialog(null, "Error, estructura vacia.");
+        }
+        else
+        {
+            resultado=cola;
+            for(int n=0;n<numero;n++)
+            {
+                resultado=resultado.siguiente;
+            }
+        }
+        return resultado;
+       
     }
     
+   
     
 }

@@ -10,7 +10,9 @@ import Estructuras.Generic;
 import Estructuras.Lista;
 import Estructuras.Nodo;
 import Estructuras.Pila;
+import java.awt.Component;
 import java.awt.Image;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -20,7 +22,6 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -53,6 +54,7 @@ public class Menu_carga extends javax.swing.JFrame {
     public static Pila pila_resultante;
     public static Cola cola_resultante;
     public static Tablero tablero =new Tablero();
+    public Generic seleccionado;
     //1 cola tipo_extraccion
     //0 Pila tipo_extraccion
     
@@ -115,6 +117,8 @@ public class Menu_carga extends javax.swing.JFrame {
         label_modo = new javax.swing.JLabel();
         boton_grafo_lista = new javax.swing.JButton();
         panel_tablero = new javax.swing.JPanel();
+        label_tipo = new javax.swing.JLabel();
+        nombre_objeto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mario Maker Guatemalteco v.1.0.0");
@@ -135,6 +139,17 @@ public class Menu_carga extends javax.swing.JFrame {
         jLabel6.setText("Vista Previa");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(200, 120, 130, 20);
+
+        Imagen_prueba.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Imagen_pruebaMouseClicked(evt);
+            }
+        });
+        Imagen_prueba.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Imagen_pruebaKeyPressed(evt);
+            }
+        });
         jPanel1.add(Imagen_prueba);
         Imagen_prueba.setBounds(160, 10, 180, 110);
 
@@ -269,6 +284,11 @@ public class Menu_carga extends javax.swing.JFrame {
         jPanel3.setLayout(null);
 
         panel_mostrador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_mostrador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel_mostradorMouseClicked(evt);
+            }
+        });
         panel_mostrador.setLayout(null);
         jScrollPane2.setViewportView(panel_mostrador);
 
@@ -302,7 +322,7 @@ public class Menu_carga extends javax.swing.JFrame {
 
         label_modo.setText("Editor");
         jPanel5.add(label_modo);
-        label_modo.setBounds(10, 250, 110, 40);
+        label_modo.setBounds(10, 250, 80, 40);
 
         boton_grafo_lista.setText("Grafo");
         boton_grafo_lista.addActionListener(new java.awt.event.ActionListener() {
@@ -311,7 +331,7 @@ public class Menu_carga extends javax.swing.JFrame {
             }
         });
         jPanel5.add(boton_grafo_lista);
-        boton_grafo_lista.setBounds(70, 230, 59, 30);
+        boton_grafo_lista.setBounds(60, 250, 80, 30);
 
         jPanel3.add(jPanel5);
         jPanel5.setBounds(900, 10, 150, 310);
@@ -319,6 +339,14 @@ public class Menu_carga extends javax.swing.JFrame {
         panel_tablero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(panel_tablero);
         panel_tablero.setBounds(10, 140, 880, 510);
+
+        label_tipo.setText("Tipo_objeto");
+        jPanel3.add(label_tipo);
+        label_tipo.setBounds(910, 370, 80, 40);
+
+        nombre_objeto.setText("Objeto");
+        jPanel3.add(nombre_objeto);
+        nombre_objeto.setBounds(910, 340, 90, 30);
 
         tablero2.addTab("Tablero", jPanel3);
 
@@ -435,6 +463,43 @@ public class Menu_carga extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_grafo_listaActionPerformed
 
+    private void Imagen_pruebaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Imagen_pruebaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Imagen_pruebaKeyPressed
+
+    private void Imagen_pruebaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Imagen_pruebaMouseClicked
+        JOptionPane.showMessageDialog(this, "nombre");
+    }//GEN-LAST:event_Imagen_pruebaMouseClicked
+
+    private void panel_mostradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_mostradorMouseClicked
+    Component[] lista_temporal=panel_mostrador.getComponents(); 
+    //Generic[] lista_temporal=(Generic[]) panel_mostrador.getComponents(); 
+    int x=evt.getX();
+    int y=evt.getY();
+    int numero=lista_objetos.tamanho();
+    int ancho_bloque=panel_mostrador.getWidth()/numero;
+    int altura_bloque=panel_mostrador.getHeight();
+    for(int cont=0;cont<numero;cont++)
+    {
+        if((cont*ancho_bloque<=x)&&(x<=(cont*ancho_bloque+ancho_bloque)))
+        {
+            if(seleccion_cola.isSelected())
+            {
+                seleccionado=(Generic)lista_objetos.RCola(cont).dato;
+            }
+            else
+            {
+                seleccionado=(Generic)lista_objetos.RPila(cont).dato;
+            }
+            nombre_objeto.setText(seleccionado.nombre);
+            String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
+            label_tipo.setText(tipos[seleccionado.tipo]);
+        }
+    }
+    
+    //nombre_objeto.setText(;
+    }//GEN-LAST:event_panel_mostradorMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -508,7 +573,9 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel label_grafo;
     private javax.swing.JLabel label_modo;
+    private javax.swing.JLabel label_tipo;
     private javax.swing.JComboBox lista_tipo;
+    public static javax.swing.JLabel nombre_objeto;
     private javax.swing.JPanel panel_mostrador;
     private javax.swing.JPanel panel_tablero;
     private javax.swing.JRadioButton seleccion_cola;
@@ -766,20 +833,51 @@ public class Menu_carga extends javax.swing.JFrame {
         int numero=lista_objetos.tamanho();
         int ancho_bloque=panel_mostrador.getWidth()/numero;
         int altura_bloque=panel_mostrador.getHeight();
-        Nodo temporal=lista_objetos.cola;
-        for(int x=0;x<numero;x++)
+        //JPanel[] lista_paneles=new JPanel[numero];
+        if(seleccion_cola.isSelected())
         {
-            Generic obj_temporal=(Generic)temporal.dato;
-            
-            ImageIcon imagen=new ImageIcon(obj_temporal.icono_path);
-            Icon icono=new ImageIcon(imagen.getImage().getScaledInstance(ancho_bloque, altura_bloque, Image.SCALE_DEFAULT));
-            obj_temporal.setIcon(icono);
-            panel_mostrador.add(obj_temporal);
-            obj_temporal.setBounds((ancho_bloque*x),0, ancho_bloque, altura_bloque);
-            obj_temporal.repaint();
-            panel_mostrador.repaint();
-            temporal=temporal.siguiente;
+            Nodo temporal=lista_objetos.cola;
+            for(int x=0;x<numero;x++)
+            {
+                Generic obj_temporal=(Generic)temporal.dato;
+               
+                ImageIcon imagen=new ImageIcon(obj_temporal.icono_path);
+                Icon icono=new ImageIcon(imagen.getImage().getScaledInstance(ancho_bloque, altura_bloque, Image.SCALE_DEFAULT));
+                obj_temporal.setIcon(icono);
+                panel_mostrador.add(obj_temporal);
+                obj_temporal.setBounds((ancho_bloque*x),0, ancho_bloque, altura_bloque);
+                obj_temporal.repaint();
+           //     obj_temporal.addMouseListener((MouseListener) this);
+                panel_mostrador.repaint();
+                temporal=temporal.siguiente;
+            }
+        }
+        if(seleccion_pila.isSelected())
+        {
+                Nodo temporal=lista_objetos.cabeza;
+                for(int x=0;x<numero;x++)
+                {
+                    Generic obj_temporal=(Generic)temporal.dato;
+
+                    ImageIcon imagen=new ImageIcon(obj_temporal.icono_path);
+                    Icon icono=new ImageIcon(imagen.getImage().getScaledInstance(ancho_bloque, altura_bloque, Image.SCALE_DEFAULT));
+                    obj_temporal.setIcon(icono);
+                    panel_mostrador.add(obj_temporal);
+                    obj_temporal.setBounds((ancho_bloque*x),0, ancho_bloque, altura_bloque);
+                    obj_temporal.repaint();
+                    panel_mostrador.repaint();
+                    temporal=temporal.anterior;
+                }
         }
         
+        
     }
+    
+    
+    public void mouseEntered(MouseEvent evento) {
+        if (evento.getSource() == null){
+         nombre_objeto.setText("Entro a mi botón");
+         label_tipo.setText("");
+        }      
+       }
 }
