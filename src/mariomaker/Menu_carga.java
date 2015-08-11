@@ -58,6 +58,7 @@ public class Menu_carga extends javax.swing.JFrame {
     public int posicion_x;
     public int posicion_y;
     public Generic[][] tab;
+    public Generic muestra_actual;
     //1 cola tipo_extraccion
     //0 Pila tipo_extraccion
     
@@ -795,6 +796,7 @@ public class Menu_carga extends javax.swing.JFrame {
         if(lista_objetos.Anterior(n_nombre, n_path,n_tipo)!=null)
         {
             Generic anterior=(Generic)lista_objetos.Anterior(n_nombre, n_path,n_tipo).dato;
+            muestra_actual=anterior;
             nuevo_nombre.setText(anterior.nombre);
             nuevo_path.setText(anterior.icono_path);
             nuevo_tipo.setSelectedIndex(anterior.tipo);
@@ -819,13 +821,14 @@ public class Menu_carga extends javax.swing.JFrame {
         if(lista_objetos.Siguiente(n_nombre, n_path,n_tipo)!=null)
         {
             Generic siguiente=(Generic)lista_objetos.Siguiente(n_nombre, n_path,n_tipo).dato;
+            muestra_actual = siguiente;
             nuevo_nombre.setText(siguiente.nombre);
             nuevo_path.setText(siguiente.icono_path);
             nuevo_tipo.setSelectedIndex(siguiente.tipo);
             int ancho_label=label_lista_imagen.getWidth();
             int altura_label=label_lista_imagen.getHeight();
             Generic temporal=(Generic)lista_objetos.cola.dato;
-                ImageIcon imagen = new ImageIcon(siguiente.icono_path); 
+            ImageIcon imagen = new ImageIcon(siguiente.icono_path); 
             Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(ancho_label, 
                                                                    altura_label, 
                                                                    Image.SCALE_SMOOTH));
@@ -855,7 +858,17 @@ public class Menu_carga extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_eliminarActionPerformed
 
     private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
-        // TODO add your handling code here:
+      
+              int tip=nuevo_tipo.getSelectedIndex();
+        lista_objetos.editar(muestra_actual,new Generic(nuevo_nombre.getText(),nuevo_path.getText(),nuevo_tipo.getSelectedIndex()));
+      ImprimirMuestra();
+                      try 
+                {
+                        lista_objetos.ImprimirLista("objetos");            
+                } catch (IOException ex) 
+                {
+                Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
+                }
     }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
 
     /**
