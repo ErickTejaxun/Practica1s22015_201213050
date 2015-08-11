@@ -700,6 +700,7 @@ public class Menu_carga extends javax.swing.JFrame {
                {
                    Nodo provisional=lista_objetos.ExtaerCola();
                    dibujarEnMostrador();
+                   InsertarTablero(provisional);
                     try {
                        lista_objetos.ImprimirLista("objetos");
                    } catch (IOException ex) {
@@ -709,6 +710,7 @@ public class Menu_carga extends javax.swing.JFrame {
                {
                    Nodo provisional=lista_objetos.ExtaerCola();
                    dibujarEnMostrador();
+                   InsertarTablero(provisional);
                    try {
                        lista_objetos.ImprimirLista("objetos");
                    } catch (IOException ex) {
@@ -1272,4 +1274,10 @@ public class Menu_carga extends javax.swing.JFrame {
          label_tipo.setText("");
         }      
        }
+
+    public  void InsertarTablero(Nodo provisional) {
+       
+    Generic tmp=(Generic) provisional.dato;
+    
+    }
 }
