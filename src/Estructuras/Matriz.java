@@ -54,7 +54,7 @@ public class Matriz
         this.fila=fila;
         this.numero=numero;
     }
-    /*Este es para los de tipo cadena*/
+    
     public Matriz crearMatriz(int columna,int fila, String dato,int numero)
     {
         this.insertarColumna(columna,fila,dato,numero);
@@ -65,13 +65,13 @@ public class Matriz
     {
         Matriz nuevo;
         nuevo=new Matriz(columna);
-        if(primero==null && ultimo==null)//si la lista est� vacia creo los nodos
+        if(primero==null && ultimo==null)
         {
             primero=nuevo;
             ultimo=nuevo;                        
         }
         
-        else if(columna<primero.columna)//si el nodo nuevo est� antes del primero
+        else if(columna<primero.columna)
         {
             nuevo.adelante=primero;
             primero.atras=nuevo;
@@ -82,7 +82,7 @@ public class Matriz
             Matriz anterior, p;
             anterior=p=primero;
             while((p.adelante!=null)&&(columna>p.columna))
-            {           //nos toca ingresar al nodo
+            {          
                 anterior=p;                
                 p=p.adelante;
             }
@@ -455,7 +455,10 @@ public class Matriz
                 System.out.println("hola ya retorno");
             }
         }                  
-//        System.out.println("retorno a "+primer_col.dato+" numero "+primer_col.numero);
+
         return primer_col;
-    }        
+    }  
+    public void graf()
+    {
+    }
 }
