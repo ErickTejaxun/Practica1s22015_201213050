@@ -548,7 +548,7 @@ public class Menu_carga extends javax.swing.JFrame {
         }else
         {
                 agregar(lista_tipo.getSelectedIndex());
-                txt_nombre_objeto.setText("1");
+                txt_nombre_objeto.setText(String.valueOf(Integer.valueOf(txt_nombre_objeto.getText())+1));
                 txt_path_imagen.setText("");
                 Imagen_prueba.setIcon(null);
                 this.repaint();
@@ -789,14 +789,23 @@ public class Menu_carga extends javax.swing.JFrame {
 
     private void boton_izquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_izquierdaActionPerformed
         String n_nombre=nuevo_nombre.getText();
-        String n_path=nuevo_path.getName();
+        String n_path=nuevo_path.getText();
         int n_tipo=nuevo_tipo.getSelectedIndex();
-        Generic anterior=(Generic)lista_objetos.Anterior(n_nombre, n_path,n_tipo).dato;
-        if(anterior!=null)
+     
+        if(lista_objetos.Anterior(n_nombre, n_path,n_tipo)!=null)
         {
+            Generic anterior=(Generic)lista_objetos.Anterior(n_nombre, n_path,n_tipo).dato;
             nuevo_nombre.setText(anterior.nombre);
             nuevo_path.setText(anterior.icono_path);
             nuevo_tipo.setSelectedIndex(anterior.tipo);
+                        int ancho_label=label_lista_imagen.getWidth();
+            int altura_label=label_lista_imagen.getHeight();
+            Generic temporal=(Generic)lista_objetos.cola.dato;
+                ImageIcon imagen = new ImageIcon(anterior.icono_path); 
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(ancho_label, 
+                                                                   altura_label, 
+                                                                   Image.SCALE_SMOOTH));
+            label_lista_imagen.setIcon(icono);
         }
         
         
@@ -804,19 +813,29 @@ public class Menu_carga extends javax.swing.JFrame {
 
     private void boton_derechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_derechaActionPerformed
         String n_nombre=nuevo_nombre.getText();
-        String n_path=nuevo_path.getName();
+        String n_path=nuevo_path.getText();
         int n_tipo=nuevo_tipo.getSelectedIndex();
-        Generic siguiente=(Generic)lista_objetos.Siguiente(n_nombre, n_path,n_tipo).dato;
-        if(siguiente!=null)
+        
+        if(lista_objetos.Siguiente(n_nombre, n_path,n_tipo)!=null)
         {
+            Generic siguiente=(Generic)lista_objetos.Siguiente(n_nombre, n_path,n_tipo).dato;
             nuevo_nombre.setText(siguiente.nombre);
             nuevo_path.setText(siguiente.icono_path);
             nuevo_tipo.setSelectedIndex(siguiente.tipo);
+            int ancho_label=label_lista_imagen.getWidth();
+            int altura_label=label_lista_imagen.getHeight();
+            Generic temporal=(Generic)lista_objetos.cola.dato;
+                ImageIcon imagen = new ImageIcon(siguiente.icono_path); 
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(ancho_label, 
+                                                                   altura_label, 
+                                                                   Image.SCALE_SMOOTH));
+            label_lista_imagen.setIcon(icono);
         }
     }//GEN-LAST:event_boton_derechaActionPerformed
 
     private void boton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_eliminarActionPerformed
-        // TODO add your handling code here:
+      lista_objetos.eliminar(new Generic(nuevo_nombre.getText(),nuevo_path.getText(),nuevo_tipo.getSelectedIndex()));
+      ImprimirMuestra();
     }//GEN-LAST:event_boton_eliminarActionPerformed
 
     private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed

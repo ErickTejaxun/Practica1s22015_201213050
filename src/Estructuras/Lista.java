@@ -342,7 +342,8 @@ public class Lista {
         {
             Nodo temporal=cola;
             boolean encontrado=false;
-            while(!encontrado)
+            
+            while((!encontrado)&&(temporal!=null))
             {
                 Generic objeto_temporal=(Generic)temporal.dato;
                 if((objeto_temporal.nombre.equals(nombre))&&(objeto_temporal.icono_path.equals(path))&&(objeto_temporal.tipo==tipo))
@@ -355,8 +356,15 @@ public class Lista {
                     temporal=temporal.siguiente;
                 }
             }
+            if(temporal==null)
+            {
+                return null;
+            }else
+            {
+                return temporal.siguiente;
+            }
             
-            return temporal.siguiente;
+            
             
         }
      
@@ -364,7 +372,7 @@ public class Lista {
         {
             Nodo temporal=cola;
             boolean encontrado=false;
-            while(!encontrado)
+            while((!encontrado)&&(temporal!=null) )
             {
                 Generic objeto_temporal=(Generic)temporal.dato;
                 if((objeto_temporal.nombre.equals(nombre))&&(objeto_temporal.icono_path.equals(path))&&(objeto_temporal.tipo==tipo))
@@ -377,7 +385,15 @@ public class Lista {
                 }
             }
             
-            return temporal.anterior;
+            if(temporal!=null)
+            {
+                return temporal.anterior;
+            }else
+            {
+                return null;
+            }
+           
+            
             
         }
     
@@ -388,7 +404,7 @@ public class Lista {
         String path=dato.icono_path;
         Nodo actual;
         boolean encontrado = false;
-        actual = cabeza;
+        actual = cola;
         // Bucle de búsqueda
         while ((actual != null) && (!encontrado))
         {
