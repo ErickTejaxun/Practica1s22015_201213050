@@ -460,5 +460,12 @@ public class Matriz
     }  
     public void graf()
     {
+       
+    }
+    public void verificar()
+    {
+    }
+    public void nuevo()
+    {
     }
 }
