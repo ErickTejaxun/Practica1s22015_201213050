@@ -696,7 +696,25 @@ public class Menu_carga extends javax.swing.JFrame {
             }
             if(label_modo.getText().equals("EDITAR"))
             {
-                
+               if(seleccion_cola.isSelected())
+               {
+                   Nodo provisional=lista_objetos.ExtaerCola();
+                   dibujarEnMostrador();
+                    try {
+                       lista_objetos.ImprimirLista("objetos");
+                   } catch (IOException ex) {
+                       Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+               }else
+               {
+                   Nodo provisional=lista_objetos.ExtaerCola();
+                   dibujarEnMostrador();
+                   try {
+                       lista_objetos.ImprimirLista("objetos");
+                   } catch (IOException ex) {
+                       Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+               }
             }
             if(label_modo.getText().equals("BORRAR")&& encontrado==false)
             {
