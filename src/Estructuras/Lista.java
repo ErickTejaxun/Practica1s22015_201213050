@@ -435,6 +435,48 @@ public class Lista {
         }
        
 }
+        public void editar (Generic dato,Generic nuevo)
+        {
+        String nombre=dato.nombre;
+        int tipo=dato.tipo;
+        String path=dato.icono_path;
+        Nodo actual;
+        boolean encontrado = false;
+        actual = cola;
+        // Bucle de búsqueda
+        while ((actual != null) && (!encontrado))
+        {
+         
+         Generic temp=(Generic)actual.dato;
+         encontrado = (temp.nombre.equals(nombre) && temp.tipo==tipo && temp.icono_path.equals(path));
+         if (!encontrado)
+         actual = actual.siguiente;
+        }
+         
+        if (actual != null)
+        {
+         
+         if (actual == cabeza)
+         {
+         cabeza = actual.anterior;
+         if (actual.siguiente != null)
+         actual.siguiente.anterior = null;
+         }else if(actual==cola)
+         {
+             cola=actual.siguiente;
+             cola.anterior=null;
+         }
+         else if (actual.siguiente != null) // No es el último nodo
+         {
+         actual.anterior.siguiente = actual.siguiente;
+         actual.siguiente.anterior = actual.anterior;
+         }
+         else // último nodo
+         actual.anterior.siguiente = null;
+         actual = null;
+        }
+       
+}
     
    
     

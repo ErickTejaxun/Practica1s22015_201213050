@@ -834,8 +834,24 @@ public class Menu_carga extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_derechaActionPerformed
 
     private void boton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_eliminarActionPerformed
-      lista_objetos.eliminar(new Generic(nuevo_nombre.getText(),nuevo_path.getText(),nuevo_tipo.getSelectedIndex()));
+      int tip=nuevo_tipo.getSelectedIndex();
+        lista_objetos.eliminar(new Generic(nuevo_nombre.getText(),nuevo_path.getText(),nuevo_tipo.getSelectedIndex()));
       ImprimirMuestra();
+      if(tip==0){no_suelo--;}
+      if(tip==1){no_pared--;}
+      if(tip==2){no_goomba--;}
+      if(tip==3){no_koopa--;}
+      if(tip==4){no_ficha--;}
+      if(tip==5){no_hongo--;}
+      if(tip==6){no_personaje--;}
+      if(tip==7){no_castillo--;}
+                      try 
+                {
+                        lista_objetos.ImprimirLista("objetos");            
+                } catch (IOException ex) 
+                {
+                Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
+                }
     }//GEN-LAST:event_boton_eliminarActionPerformed
 
     private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed

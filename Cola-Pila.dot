@@ -1,172 +1,92 @@
 digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue", color="blue:red"]rankdir=BT
 "Nombre:1
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"-> "Nombre:2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+Tipo:Suelo"-> "Nombre:6
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (1).png
 Tipo:Suelo"
-"Nombre:2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+"Nombre:6
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (1).png
 Tipo:Suelo"-> "Nombre:1
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
 Tipo:Suelo"
-"Nombre:2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
-Tipo:Suelo"-> "Nombre:3
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"
-"Nombre:3
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"-> "Nombre:2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
-Tipo:Suelo"
-"Nombre:3
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"-> "Nombre:4
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
-Tipo:Suelo"
-"Nombre:4
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
-Tipo:Suelo"-> "Nombre:3
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"
-"Nombre:4
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
-Tipo:Suelo"-> "Nombre:5
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"
-"Nombre:5
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"-> "Nombre:4
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
-Tipo:Suelo"
-"Nombre:5
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"-> "Nombre:6
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Pared"
 "Nombre:6
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Pared"-> "Nombre:5
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (1).png
+Tipo:Suelo"-> "Nombre:7
 Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
-Tipo:Suelo"
-"Nombre:6
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Pared"-> "Nombre:7
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
 Tipo:Pared"
 "Nombre:7
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
 Tipo:Pared"-> "Nombre:6
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Pared"
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (1).png
+Tipo:Suelo"
 "Nombre:7
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Pared"-> "Nombre:8
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Pared"
-"Nombre:8
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Pared"-> "Nombre:7
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Pared"
-"Nombre:8
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
 Tipo:Pared"-> "Nombre:9
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (126).png
-Tipo:Goomba"
-"Nombre:9
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (126).png
-Tipo:Goomba"-> "Nombre:8
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
 Tipo:Pared"
 "Nombre:9
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (126).png
-Tipo:Goomba"-> "Nombre:10
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+Tipo:Pared"-> "Nombre:7
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
+Tipo:Pared"
+"Nombre:9
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+Tipo:Pared"-> "Nombre:11
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (113).png
 Tipo:Goomba"
-"Nombre:10
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+"Nombre:11
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (113).png
 Tipo:Goomba"-> "Nombre:9
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (126).png
-Tipo:Goomba"
-"Nombre:10
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Goomba"-> "Nombre:11
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (125).png
-Tipo:Koopa"
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+Tipo:Pared"
 "Nombre:11
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (125).png
-Tipo:Koopa"-> "Nombre:10
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
-Tipo:Goomba"
-"Nombre:11
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (125).png
-Tipo:Koopa"-> "Nombre:12
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
-Tipo:Ficha"
-"Nombre:12
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
-Tipo:Ficha"-> "Nombre:11
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (125).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (113).png
+Tipo:Goomba"-> "Nombre:12
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (102).png
 Tipo:Koopa"
 "Nombre:12
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
-Tipo:Ficha"-> "Nombre:13
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (102).png
+Tipo:Koopa"-> "Nombre:11
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (113).png
+Tipo:Goomba"
+"Nombre:12
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (102).png
+Tipo:Koopa"-> "Nombre:13
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (98).png
 Tipo:Ficha"
 "Nombre:13
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (98).png
 Tipo:Ficha"-> "Nombre:12
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
-Tipo:Ficha"
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (102).png
+Tipo:Koopa"
 "Nombre:13
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (98).png
 Tipo:Ficha"-> "Nombre:14
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (93).png
+Tipo:Hongo"
+"Nombre:14
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (93).png
+Tipo:Hongo"-> "Nombre:13
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (98).png
 Tipo:Ficha"
 "Nombre:14
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
-Tipo:Ficha"-> "Nombre:13
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
-Tipo:Ficha"
-"Nombre:14
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
-Tipo:Ficha"-> "Nombre:15
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
-Tipo:Ficha"
-"Nombre:15
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
-Tipo:Ficha"-> "Nombre:14
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
-Tipo:Ficha"
-"Nombre:15
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
-Tipo:Ficha"-> "Nombre:16
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
-Tipo:Hongo"
-"Nombre:16
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
-Tipo:Hongo"-> "Nombre:15
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
-Tipo:Ficha"
-"Nombre:16
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
-Tipo:Hongo"-> "Nombre:17
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (116).png
-Tipo:Personaje Principal"
-"Nombre:17
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (116).png
-Tipo:Personaje Principal"-> "Nombre:16
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
-Tipo:Hongo"
-"Nombre:17
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (116).png
-Tipo:Personaje Principal"-> "Nombre:18
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (93).png
+Tipo:Hongo"-> "Nombre:16
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (69).png
 Tipo:Castillo"
+"Nombre:16
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (69).png
+Tipo:Castillo"-> "Nombre:14
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (93).png
+Tipo:Hongo"
+"Nombre:16
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (69).png
+Tipo:Castillo"-> "Nombre:18
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (67).png
+Tipo:Suelo"
 "Nombre:18
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
-Tipo:Castillo"-> "Nombre:17
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (116).png
-Tipo:Personaje Principal"
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (67).png
+Tipo:Suelo"-> "Nombre:16
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (69).png
+Tipo:Castillo"
 }
