@@ -93,6 +93,17 @@ public class Menu_carga extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         Panel_muestra1 = new javax.swing.JPanel();
+        label_lista_imagen = new javax.swing.JLabel();
+        boton_izquierda = new javax.swing.JButton();
+        boton_derecha = new javax.swing.JButton();
+        boton_eliminar = new javax.swing.JButton();
+        nuevo_tipo = new javax.swing.JComboBox();
+        boton_guardar_cambios = new javax.swing.JButton();
+        nuevo_path = new javax.swing.JTextField();
+        nuevo_nombre = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         JPanel_grafica = new javax.swing.JPanel();
         label_grafo = new javax.swing.JLabel();
         boton_graficar = new javax.swing.JButton();
@@ -221,6 +232,71 @@ public class Menu_carga extends javax.swing.JFrame {
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         Panel_muestra1.setLayout(null);
+
+        label_lista_imagen.setBackground(new java.awt.Color(51, 51, 255));
+        Panel_muestra1.add(label_lista_imagen);
+        label_lista_imagen.setBounds(200, 50, 230, 130);
+
+        boton_izquierda.setText("<");
+        boton_izquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_izquierdaActionPerformed(evt);
+            }
+        });
+        Panel_muestra1.add(boton_izquierda);
+        boton_izquierda.setBounds(200, 200, 80, 30);
+
+        boton_derecha.setText(">");
+        boton_derecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_derechaActionPerformed(evt);
+            }
+        });
+        Panel_muestra1.add(boton_derecha);
+        boton_derecha.setBounds(350, 200, 80, 30);
+
+        boton_eliminar.setText("Eliminar");
+        boton_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_eliminarActionPerformed(evt);
+            }
+        });
+        Panel_muestra1.add(boton_eliminar);
+        boton_eliminar.setBounds(730, 140, 100, 30);
+
+        nuevo_tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suelo", "Pared", "Goomba", "Koopa", "Ficha", "Hongo de vida", "Personaje Principal", "Castillo final" }));
+        Panel_muestra1.add(nuevo_tipo);
+        nuevo_tipo.setBounds(520, 140, 190, 30);
+
+        boton_guardar_cambios.setText("Guardar");
+        boton_guardar_cambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_guardar_cambiosActionPerformed(evt);
+            }
+        });
+        Panel_muestra1.add(boton_guardar_cambios);
+        boton_guardar_cambios.setBounds(730, 90, 100, 30);
+
+        nuevo_path.setEnabled(false);
+        Panel_muestra1.add(nuevo_path);
+        nuevo_path.setBounds(520, 90, 190, 30);
+
+        nuevo_nombre.setText("1");
+        Panel_muestra1.add(nuevo_nombre);
+        nuevo_nombre.setBounds(520, 40, 190, 30);
+
+        jLabel5.setText("Nombre ");
+        Panel_muestra1.add(jLabel5);
+        jLabel5.setBounds(450, 40, 70, 30);
+
+        jLabel8.setText("Path");
+        Panel_muestra1.add(jLabel8);
+        jLabel8.setBounds(450, 90, 70, 30);
+
+        jLabel9.setText("Tipo");
+        Panel_muestra1.add(jLabel9);
+        jLabel9.setBounds(450, 140, 70, 30);
+
         jScrollPane1.setViewportView(Panel_muestra1);
 
         jTabbedPane1.addTab("Lista", jScrollPane1);
@@ -268,6 +344,8 @@ public class Menu_carga extends javax.swing.JFrame {
         });
         jPanel2.add(boton_path_imagen1);
         boton_path_imagen1.setBounds(290, 140, 100, 30);
+
+        txt_nombre_objeto.setText("1");
         jPanel2.add(txt_nombre_objeto);
         txt_nombre_objeto.setBounds(80, 90, 190, 30);
 
@@ -470,7 +548,7 @@ public class Menu_carga extends javax.swing.JFrame {
         }else
         {
                 agregar(lista_tipo.getSelectedIndex());
-                txt_nombre_objeto.setText("");
+                txt_nombre_objeto.setText("1");
                 txt_path_imagen.setText("");
                 Imagen_prueba.setIcon(null);
                 this.repaint();
@@ -482,6 +560,7 @@ public class Menu_carga extends javax.swing.JFrame {
                 Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
+        
         ImprimirMuestra();
 
     }//GEN-LAST:event_boton_agregar_objetoActionPerformed
@@ -513,12 +592,18 @@ public class Menu_carga extends javax.swing.JFrame {
     }//GEN-LAST:event_seleccion_colaActionPerformed
 
     private void boton_continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_continuarActionPerformed
+
         if(lista_objetos.Vacio())
         {
             JOptionPane.showMessageDialog(this, "Debe Agregar algun objeto a la lista.");
         }else
         {
            tablero2.enable(true);
+            try {
+                lista_objetos.ImprimirLista("Cola-Pila");
+            } catch (IOException ex) {
+                Logger.getLogger(Menu_carga.class.getName()).log(Level.SEVERE, null, ex);
+            }
            dibujarEnMostrador();
            JOptionPane.showMessageDialog(this, "Tablero Habilitado");
         }
@@ -581,6 +666,7 @@ public class Menu_carga extends javax.swing.JFrame {
     posicion_x=evt.getX();
     posicion_y=evt.getY();
     int numero=lista_objetos.tamanho();
+    System.err.println(numero);
     int ancho_bloque=panel_mostrador.getWidth()/numero;
     int altura_bloque=panel_mostrador.getHeight();
     boolean encontrado=false;
@@ -611,20 +697,24 @@ public class Menu_carga extends javax.swing.JFrame {
             {
                 
             }
-            if(label_modo.getText().equals("BORRAR")||encontrado==false)
+            if(label_modo.getText().equals("BORRAR")&& encontrado==false)
             {
+                if(this.seleccion_pila.isSelected())
+                {
+                    lista_objetos.eliminarPila(cont);
                     encontrado=true;
-                lista_objetos.eliminar (seleccionado);              
-                
-                      tablero2.enable(true);
-                      dibujarEnMostrador();                 
-                   tab=new Generic[Integer.valueOf(label_no_filas.getText())][Integer.valueOf(label_no_columnas.getText())];
+                }
+                else
+                {
+                    lista_objetos.eliminarCola(cont);
+                    encontrado=true;
+                }               
             }
-            
-            
         }
     }
     
+                    dibujarEnMostrador();                 
+                    tab=new Generic[Integer.valueOf(label_no_filas.getText())][Integer.valueOf(label_no_columnas.getText())];
     //nombre_objeto.setText(;
     }//GEN-LAST:event_panel_mostradorMouseClicked
 
@@ -697,6 +787,42 @@ public class Menu_carga extends javax.swing.JFrame {
         mostrar_prueba2();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void boton_izquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_izquierdaActionPerformed
+        String n_nombre=nuevo_nombre.getText();
+        String n_path=nuevo_path.getName();
+        int n_tipo=nuevo_tipo.getSelectedIndex();
+        Generic anterior=(Generic)lista_objetos.Anterior(n_nombre, n_path,n_tipo).dato;
+        if(anterior!=null)
+        {
+            nuevo_nombre.setText(anterior.nombre);
+            nuevo_path.setText(anterior.icono_path);
+            nuevo_tipo.setSelectedIndex(anterior.tipo);
+        }
+        
+        
+    }//GEN-LAST:event_boton_izquierdaActionPerformed
+
+    private void boton_derechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_derechaActionPerformed
+        String n_nombre=nuevo_nombre.getText();
+        String n_path=nuevo_path.getName();
+        int n_tipo=nuevo_tipo.getSelectedIndex();
+        Generic siguiente=(Generic)lista_objetos.Siguiente(n_nombre, n_path,n_tipo).dato;
+        if(siguiente!=null)
+        {
+            nuevo_nombre.setText(siguiente.nombre);
+            nuevo_path.setText(siguiente.icono_path);
+            nuevo_tipo.setSelectedIndex(siguiente.tipo);
+        }
+    }//GEN-LAST:event_boton_derechaActionPerformed
+
+    private void boton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_eliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_eliminarActionPerformed
+
+    private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -744,9 +870,13 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JButton boton_borrar_columna;
     private javax.swing.JButton boton_borrar_fila;
     private javax.swing.JButton boton_continuar;
+    private javax.swing.JButton boton_derecha;
     private javax.swing.JButton boton_editar;
+    private javax.swing.JButton boton_eliminar;
     private javax.swing.JButton boton_graficar;
     private javax.swing.JButton boton_grafo_lista;
+    private javax.swing.JButton boton_guardar_cambios;
+    private javax.swing.JButton boton_izquierda;
     private javax.swing.JButton boton_path_imagen1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -765,8 +895,11 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -778,6 +911,7 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JLabel label_columna_actual;
     private javax.swing.JLabel label_fila_actual;
     private javax.swing.JLabel label_grafo;
+    private javax.swing.JLabel label_lista_imagen;
     private javax.swing.JLabel label_m;
     private javax.swing.JLabel label_modo;
     private javax.swing.JLabel label_no_columnas;
@@ -785,6 +919,9 @@ public class Menu_carga extends javax.swing.JFrame {
     private javax.swing.JLabel label_tipo;
     private javax.swing.JComboBox lista_tipo;
     public static javax.swing.JLabel nombre_objeto;
+    private javax.swing.JTextField nuevo_nombre;
+    private javax.swing.JTextField nuevo_path;
+    private javax.swing.JComboBox nuevo_tipo;
     private javax.swing.JPanel panel_mostrador;
     private javax.swing.JPanel panel_tablero;
     private javax.swing.JRadioButton seleccion_cola;
@@ -984,43 +1121,18 @@ public class Menu_carga extends javax.swing.JFrame {
     
     public void ImprimirMuestra()
     {
-//        int ancho=Panel_muestra1.getHeight();
-//        int altura=Panel_muestra1.getWidth();
-//        Lista temporal=lista_objetos.clonar();
-//        Panel_muestra.removeAll();
-//        Panel_muestra.setLayout(null);
-//        int contador=0;
-//        while(!temporal.Vacio())
-//        {
-//            contador++;
-//            Nodo nuevo=temporal.ExtraerCabeza();
-//            Generic objeto_temporal= (Generic)nuevo.dato;
-//            String nombre=objeto_temporal.nombre;
-//            String[] tipos={"Suelo","Pared","Goomba","Koopa","Ficha","Hongo","Personaje Principal","Castillo"};
-//            String tipo=tipos[objeto_temporal.tipo];
-//            String path=objeto_temporal.icono_path;
-//            //jLabel8.setBounds(10, 10, 90, 30);
-//            //(x,y,ancho,altura)
-//            JLabel mnombre= new JLabel(); mnombre.setText(nombre);Panel_muestra.add(mnombre); mnombre.setBounds( 100*contador,100*contador,100*contador,100*contador);    
-//        }
-        this.repaint();
-//        String nombre=nuevo.nombre;
-//        String tipo=nuevo.tipo;
-//        String paht=nuevo.pathimagen;
-//        int  ataque=nuevo.ataque;
-//        int defensa=nuevo.defensa;
-//        Mostrador.setLayout(null);
-//        JLabel mnombre= new JLabel(); mnombre.setText(nombre);Mostrador.add(mnombre); mnombre.setBounds(120,mostradory,130,30);
-//        JLabel mataque= new JLabel(); mataque.setText(String.valueOf(ataque));Mostrador.add(mataque); mataque.setBounds(270,mostradory,130,30);
-//        JLabel mdefensa=new JLabel(); mdefensa.setText(String.valueOf(defensa)); Mostrador.add(mdefensa);mdefensa.setBounds(410,mostradory,130,30);
-//        JLabel mtipo= new JLabel(); mtipo.setText(tipo);Mostrador.add(mtipo); mtipo.setBounds(560,mostradory,130,30);
-//        JButton eliminar=new JButton(); eliminar.setText("Eliminar");Mostrador.add(eliminar); eliminar.setBounds(690,mostradory,100,20);
-//        JButton modificar=new JButton(); modificar.setText("Modificar");Mostrador.add(modificar);modificar.setBounds(690,mostradory+20,100,20);
-//        JLabel mimagen=new JLabel();Mostrador.add(mimagen);mimagen.setBounds(10,mostradory+20,100,100);
-//        ImageIcon imagen = new ImageIcon(pathactual);
-//        ImageIcon imagenredimencionada= new ImageIcon(imagen.getImage().getScaledInstance(100, 100,0));
-//        mimagen.setIcon(imagenredimencionada);
-//        mostradory+=100;
+        int ancho_label=label_lista_imagen.getWidth();
+        int altura_label=label_lista_imagen.getHeight();
+        Generic temporal=(Generic)lista_objetos.cola.dato;
+            ImageIcon imagen = new ImageIcon(temporal.icono_path); 
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(ancho_label, 
+                                                               altura_label, 
+                                                               Image.SCALE_SMOOTH));
+        label_lista_imagen.setIcon(icono);
+        nuevo_nombre.setText(temporal.nombre);
+        nuevo_path.setText(temporal.icono_path);
+        nuevo_tipo.setSelectedIndex(temporal.tipo);
+        
     }
     public void pasarTablero()
     {

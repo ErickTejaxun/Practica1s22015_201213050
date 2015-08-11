@@ -269,6 +269,30 @@ public class Lista {
         return resultado;
        
     }
+    
+    
+    //Metodo para actualizar datos.
+    public Lista Actualizar(Object actual,Object nuevo)
+    {
+        Lista nueva=new Lista();
+        Nodo temporal=cola;
+        while(temporal!=null)
+        {
+            Generic objeto_temporal=(Generic)temporal.dato;
+            Generic objeto_actual=(Generic)actual;
+            if((objeto_temporal.nombre.equals(objeto_actual.nombre))&&(objeto_temporal.tipo==objeto_actual.tipo)&&(objeto_temporal.icono_path.equals(objeto_actual.icono_path)))
+            {
+                nueva.InsertarAlFrente(new Generic(objeto_temporal.nombre, objeto_temporal.icono_path,objeto_temporal.tipo)); 
+            }
+            else
+            {
+                nueva.InsertarAlFrente(nuevo);
+            }
+            temporal=temporal.siguiente;
+           
+        }
+        return nueva;
+    }
     public void eliminarCola(int indice)
     {
         Nodo temporal=cola;
@@ -314,6 +338,48 @@ public class Lista {
         }
         
     }
+     public Nodo Siguiente(String nombre, String path, int tipo)
+        {
+            Nodo temporal=cola;
+            boolean encontrado=false;
+            while(!encontrado)
+            {
+                Generic objeto_temporal=(Generic)temporal.dato;
+                if((objeto_temporal.nombre.equals(nombre))&&(objeto_temporal.icono_path.equals(path))&&(objeto_temporal.tipo==tipo))
+                {
+                   encontrado=true;
+                   
+                }
+                else
+                {
+                    temporal=temporal.siguiente;
+                }
+            }
+            
+            return temporal.siguiente;
+            
+        }
+     
+          public Nodo Anterior(String nombre, String path, int tipo)
+        {
+            Nodo temporal=cola;
+            boolean encontrado=false;
+            while(!encontrado)
+            {
+                Generic objeto_temporal=(Generic)temporal.dato;
+                if((objeto_temporal.nombre.equals(nombre))&&(objeto_temporal.icono_path.equals(path))&&(objeto_temporal.tipo==tipo))
+                {
+                   encontrado=true;
+                }
+                else
+                {
+                    temporal=temporal.siguiente;
+                }
+            }
+            
+            return temporal.anterior;
+            
+        }
     
         public void eliminar (Generic dato)
         {
@@ -351,6 +417,7 @@ public class Lista {
          actual.anterior.siguiente = null;
          actual = null;
         }
+       
 }
     
    

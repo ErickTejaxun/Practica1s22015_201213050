@@ -1,32 +1,5 @@
 digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue", color="blue:red"]rankdir=BT
-"Nombre:Erick
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Brick 2D.png
-Tipo:Suelo"-> "Nombre:2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 2D.png
-Tipo:Pared"
-"Nombre:2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 2D.png
-Tipo:Pared"-> "Nombre:Erick
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Brick 2D.png
-Tipo:Suelo"
-"Nombre:2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 2D.png
-Tipo:Pared"-> "Nombre:3
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
-Tipo:Goomba"
-"Nombre:3
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
-Tipo:Goomba"-> "Nombre:2
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Block - Question 2D.png
-Tipo:Pared"
-"Nombre:3
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
-Tipo:Goomba"-> "Nombre:Koopa
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\P-Wing.png
-Tipo:Ficha"
-"Nombre:Koopa
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\P-Wing.png
-Tipo:Ficha"-> "Nombre:3
-Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\PNG\Goomba.png
-Tipo:Goomba"
+"Nombre:Red
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (16).png
+Tipo:Castillo"
 }

@@ -1,0 +1,152 @@
+digraph ColaAtencion {node [dir=both,shape=polygon, fontcolor="Black", height=0.5, color="Grey"]edge [color="blue", color="blue:red"]rankdir=BT
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (130).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (129).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (127).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (127).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (128).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (127).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (126).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (126).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (127).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (126).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (125).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (125).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (126).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (125).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (124).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (124).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (125).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (124).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (123).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (123).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (124).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (123).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (122).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (122).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (123).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (122).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (122).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (121).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (120).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (118).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (118).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (119).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (118).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (117).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (117).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (118).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (117).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (116).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (116).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (117).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (116).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (115).png
+Tipo:Suelo"
+"Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (115).png
+Tipo:Suelo"-> "Nombre:1
+Path:C:\Users\Erick\Documents\NetBeansProjects\MarioMaker\img\a (116).png
+Tipo:Suelo"
+}
